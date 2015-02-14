@@ -1,0 +1,1 @@
+javaw -jar StrategicGameServer-1.0.jar

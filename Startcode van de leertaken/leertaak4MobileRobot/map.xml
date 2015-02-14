@@ -1,0 +1,68 @@
+<MAP>
+    <OBSTACLE NAME="W1" OPAQUE="false">
+        <POINT X="0" Y="0"/>
+        <POINT X="500" Y="0"/>
+        <POINT X="500" Y="20"/>
+        <POINT X="0" Y="20"/>
+    </OBSTACLE>
+    <OBSTACLE NAME="W2" OPAQUE="false">
+        <POINT X="0" Y="20"/>
+        <POINT X="20" Y="20"/>
+        <POINT X="20" Y="150"/>
+        <POINT X="0" Y="150"/>
+    </OBSTACLE>
+    <OBSTACLE NAME="W2" OPAQUE="true">
+        <POINT X="5" Y="150"/>
+        <POINT X="15" Y="150"/>
+        <POINT X="15" Y="250"/>
+        <POINT X="5" Y="250"/>
+    </OBSTACLE>
+    <OBSTACLE NAME="W3" OPAQUE="false">
+        <POINT X="0" Y="250"/>
+        <POINT X="20" Y="250"/>
+        <POINT X="20" Y="380"/>
+        <POINT X="0" Y="380"/>
+    </OBSTACLE>
+    <OBSTACLE NAME="W4" OPAQUE="false">
+        <POINT X="0" Y="380"/>
+        <POINT X="500" Y="380"/>
+        <POINT X="500" Y="400"/>
+        <POINT X="0" Y="400"/>
+    </OBSTACLE>
+    <OBSTACLE NAME="W5" OPAQUE="false">
+        <POINT X="480" Y="20"/>
+        <POINT X="500" Y="20"/>
+        <POINT X="500" Y="200"/>
+        <POINT X="480" Y="200"/>
+    </OBSTACLE>
+    <OBSTACLE NAME="W5" OPAQUE="true">
+        <POINT X="485" Y="200"/>
+        <POINT X="495" Y="200"/>
+        <POINT X="495" Y="300"/>
+        <POINT X="485" Y="300"/>
+    </OBSTACLE>
+    <OBSTACLE NAME="W5" OPAQUE="false">
+        <POINT X="480" Y="300"/>
+        <POINT X="500" Y="300"/>
+        <POINT X="500" Y="380"/>
+        <POINT X="480" Y="380"/>
+    </OBSTACLE>
+    <OBSTACLE NAME="W6" OPAQUE="false">
+        <POINT X="100" Y="100"/>
+        <POINT X="200" Y="100"/>
+        <POINT X="200" Y="200"/>
+        <POINT X="150" Y="200"/>
+        <POINT X="150" Y="150"/>
+        <POINT X="100" Y="150"/>
+    </OBSTACLE>
+    <OBSTACLE NAME="W7" OPAQUE="false">
+        <POINT X="250" Y="250"/>
+        <POINT X="300" Y="250"/>
+        <POINT X="300" Y="200"/>
+        <POINT X="350" Y="200"/>
+        <POINT X="350" Y="250"/>
+        <POINT X="400" Y="250"/>
+        <POINT X="400" Y="300"/>
+        <POINT X="250" Y="300"/>
+    </OBSTACLE>
+</MAP>

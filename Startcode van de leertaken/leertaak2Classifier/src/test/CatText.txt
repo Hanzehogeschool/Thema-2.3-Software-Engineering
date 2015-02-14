@@ -1,0 +1,9 @@
+Low
+Medium-Low
+Medium
+Medium-High
+High
+Medium-Low
+Medium
+Medium-High
+High
