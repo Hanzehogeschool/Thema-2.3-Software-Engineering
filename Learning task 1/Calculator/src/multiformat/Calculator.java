@@ -1,11 +1,17 @@
 package multiformat;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+
 public class Calculator {
 
     private Rational operand_0 = new Rational();
     private Rational operand_1 = new Rational();
     private Format format = new FixedPointFormat();
     private Base base = new DecimalBase();
+    private int counter;
+    private ArrayList<ActionListener> actionListenerList = new ArrayList<ActionListener>();
 
     /**
      * Adds a new operand.
@@ -16,6 +22,7 @@ public class Calculator {
     public void addOperand(String newOperand) throws FormatException {
         try {
             validateOperand(newOperand);
+            incCounter();
             operand_1 = operand_0;
             operand_0 = format.parse(newOperand, base);
         } catch (NumberBaseException numberBaseException) {
@@ -40,6 +47,22 @@ public class Calculator {
             }
         }
     }
+
+    private void incCounter() {
+        counter++;
+        processEvent(new ActionEvent(this, ActionEvent.ACTION_PERFORMED, null));
+    }
+
+    private void processEvent(ActionEvent e) {
+        for (ActionListener l : actionListenerList) {
+            l.actionPerformed(e);
+        }
+    }
+
+    public void addActionListener(ActionListener l) {
+        actionListenerList.add(l);
+    }
+
 
     public void add() {
         operand_0 = operand_1.plus(operand_0);
@@ -88,6 +111,10 @@ public class Calculator {
 
     public Format getFormat() {
         return format;
+    }
+
+    public int getCounter() {
+        return counter;
     }
 
 }
