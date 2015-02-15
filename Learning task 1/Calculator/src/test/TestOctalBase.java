@@ -2,14 +2,14 @@ package test;
 
 import multiformat.Calculator;
 import multiformat.OctalBase;
+
 import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
 /**
- * JUnit Testcase to test OctalBase.
- * Note that this class uses 'annotations' (the @...). This is a Java 1.5 feature.
+ * JUnit Test case to test octal base.
  *
  * @author Nils Berlijn
  * @author Tom Broenink
@@ -38,9 +38,9 @@ public class TestOctalBase {
     }
 
     /**
-     * Tests the divide method.
+     * Tests the octal base.
      *
-     * @see multiformat.Rational#div(multiformat.Rational)
+     * @see multiformat.OctalBase
      */
     @Test
     public void testOctalBase() throws Exception {

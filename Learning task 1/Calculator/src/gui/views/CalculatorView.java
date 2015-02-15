@@ -9,6 +9,13 @@ import java.awt.event.ActionListener;
 
 public class CalculatorView extends JPanel implements ActionListener {
 
+    JPanel container = new JPanel(new BorderLayout());
+    JPanel baseContainer = new JPanel(new GridLayout(1, 0));
+    JPanel operationContainer = new JPanel(new GridLayout(0, 1));
+    JPanel formatContainer = new JPanel(new GridLayout(1, 0));
+    JPanel baseFormatContainer = new JPanel(new GridLayout(0, 1));
+    JPanel butContainer = new JPanel(new GridLayout(0, 3));
+    JPanel topContainer = new JPanel(new GridLayout(1, 0));
     private String baseDigits;
     private Calculator calculator;
     private String inputNumber = "";
@@ -36,14 +43,6 @@ public class CalculatorView extends JPanel implements ActionListener {
             new JButton("Float"),
             new JButton("Rational")
     };
-
-    JPanel container = new JPanel(new BorderLayout());
-    JPanel baseContainer = new JPanel(new GridLayout(1, 0));
-    JPanel operationContainer = new JPanel(new GridLayout(0, 1));
-    JPanel formatContainer = new JPanel(new GridLayout(1, 0));
-    JPanel baseFormatContainer = new JPanel(new GridLayout(0, 1));
-    JPanel butContainer = new JPanel(new GridLayout(0, 3));
-    JPanel topContainer = new JPanel(new GridLayout(1, 0));
 
     public CalculatorView(Calculator calculator) {
         this.calculator = calculator;

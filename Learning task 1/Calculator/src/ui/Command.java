@@ -1,21 +1,3 @@
-/*
- * (C) Copyright 2005 Davide Brugali, Marco Torchiano
- *
- * This program is free software; you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation; either version 2 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program; if not, write to the Free Software
- * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA
- * 02111-1307  USA
- */
 package ui;
 
 import multiformat.*;
@@ -25,25 +7,25 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-/**
- * De main-klasse die leest en schrijft naar de console.
- *
- * @author Brugali
- * @author Balj�
- */
 public class Command {
     Calculator calc = new Calculator();
     BufferedReader prevReader = null;
     BufferedReader lineReader = new BufferedReader(new InputStreamReader(System.in));
+
+    public static void main(String[] args) {
+        Command command = new Command();
+        while (command.nextCommand()) ;
+    }
 
     boolean nextCommand() {
         System.out.print("\n[" + calc.getBase().getName() + ","
                 + calc.getFormat().getName() + ","
                 + calc.firstOperand() + ", "
                 + calc.secondOperand() + "] >");
+
         try {
-            // reads the command from the keyboard
             String command = lineReader.readLine();
+
             while (command == null) {
                 if (prevReader != null) {
                     lineReader = prevReader;
@@ -53,6 +35,7 @@ public class Command {
                     return false;
                 }
             }
+
             if (command.equals("+")) calc.add();
             else if (command.equals("-")) calc.subtract();
             else if (command.equals("*")) calc.multiply();
@@ -65,16 +48,13 @@ public class Command {
             else if (command.equals("fixed")) calc.setFormat(new FixedPointFormat());
             else if (command.equals("float")) calc.setFormat(new FloatingPointFormat());
             else if (command.equals("del")) calc.delete();
+
             else if (command.indexOf("op") >= 0) {
-
-
                 try {
                     calc.addOperand(command.substring(2).trim());
                 } catch (FormatException e) {
                     System.out.println("Wrong operand: " + e.getMessage());
                 }
-
-
             } else if (command.indexOf("read") >= 0) {
                 try {
                     BufferedReader file = new BufferedReader(
@@ -92,8 +72,8 @@ public class Command {
             else {
                 System.out.println("Error! Not a valid command");
             }
-        } catch (IOException ioe) {
-            ioe.printStackTrace();
+        } catch (IOException ioException) {
+            ioException.printStackTrace();
         }
 
         return true;
@@ -118,11 +98,6 @@ public class Command {
         System.out.println("  help         (print this command list)");
         System.out.println("  exit         (terminate execution)");
         System.out.println();
-    }
-
-    public static void main(String[] args) {
-        Command command = new Command();
-        while (command.nextCommand()) ;
     }
 
 }

@@ -1,21 +1,3 @@
-/*
- * (C) Copyright 2005 Davide Brugali, Marco Torchiano
- *
- * This program is free software; you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation; either version 2 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program; if not, write to the Free Software
- * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA
- * 02111-1307  USA
- */
 package multiformat;
 
 public class FloatingPointFormat extends Format {
@@ -27,6 +9,7 @@ public class FloatingPointFormat extends Format {
     public String toString(Rational number, Base base) {
         double value = number.numerator / number.denominator;
         double baseNum = base.getBase();
+
         if (value == 0.0) {
             return "0.0*10^1";
         } else {
@@ -53,4 +36,5 @@ public class FloatingPointFormat extends Format {
         double value = mantissa * Math.pow(base.getBase(), power);
         return new Rational(value);
     }
+
 }

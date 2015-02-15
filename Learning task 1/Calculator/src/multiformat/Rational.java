@@ -31,7 +31,7 @@ public class Rational {
 
     /**
      * Constructor.
-     * Create a new Rational.
+     * Create a new rational.
      *
      * @param num Numerator.
      * @param den Denominator.
@@ -44,7 +44,7 @@ public class Rational {
 
     /**
      * Constructor.
-     * Create a new Rational.
+     * Create a new rational.
      * Parameter-free Constructor.
      */
     public Rational() {
@@ -53,7 +53,7 @@ public class Rational {
 
     /**
      * Constructor.
-     * Create a new Rational.
+     * Create a new rational.
      *
      * @param number Number.
      */
@@ -68,9 +68,9 @@ public class Rational {
      * Get rid of any decimals in the numerator. E.g. 12.5/1.0 becomes 125.0/10.0
      * (Note that any decimals in the denominator aren't handled, eg 10/0.5.
      * This seems an omission.)
-     * Seen also unittest TestRational.java
+     * Seen also unit test TestRational.java
      *
-     * @see test.TestRational
+     * @see test.TestRational#testCanonical()
      */
     public void canonical() {
         double num = Math.abs(numerator);
@@ -89,9 +89,9 @@ public class Rational {
 
     /**
      * Simplify the rational. 125/10 becomes 25/2.
-     * Seen also unittest TestRational.java
+     * Seen also unit test TestRational.java
      *
-     * @see test.TestRational
+     * @see test.TestRational#testSimplify()
      */
     public void simplify() {
         double divisor = Math.min(Math.abs(numerator), denominator);
@@ -113,8 +113,8 @@ public class Rational {
     /**
      * Add two rationals.
      *
-     * @param other Another Rational to add to this.
-     * @return A new Rational representing the sum.
+     * @param other Another rational to add to this.
+     * @return A new rational representing the sum.
      */
     public Rational plus(Rational other) {
         if (denominator == other.denominator) {
@@ -128,10 +128,10 @@ public class Rational {
     }
 
     /**
-     * Minus two Rationals.
+     * Minus two rationals.
      *
-     * @param other Another Rational to minus to this.
-     * @return A new Rational representing the sum.
+     * @param other Another rational to minus to this.
+     * @return A new rational representing the sum.
      */
     public Rational minus(Rational other) {
         if (denominator == other.denominator) {
@@ -144,7 +144,7 @@ public class Rational {
     }
 
     /**
-     * Multiplies two Rationals.
+     * Multiplies two rationals.
      *
      * @param other Another Rational to multiply to this.
      * @return A new Rational representing the sum.
@@ -156,11 +156,12 @@ public class Rational {
     }
 
     /**
-     * Divides two Rationals.
+     * Divides two rationals.
      * It checks also if it's not divided by 0.
      *
-     * @param other Another Rational to devide to this.
-     * @return A new Rational representing the sum.
+     * @param other Another rational to divide to this.
+     * @return A new rational representing the sum.
+     * @see test.TestRational#testDivide()
      */
     public Rational div(Rational other) {
         if (other.numerator != 0.0 || other.denominator != 0.0) {
@@ -172,9 +173,9 @@ public class Rational {
     }
 
     /**
-     * Copy two Rationals.
+     * Copy two rationals.
      *
-     * @param other Another Rational to copy to this.
+     * @param other Another rational to copy to this.
      */
     public void copyOf(Rational other) {
         this.numerator = other.numerator;

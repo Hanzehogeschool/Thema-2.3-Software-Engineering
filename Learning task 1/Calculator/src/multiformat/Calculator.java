@@ -97,20 +97,20 @@ public class Calculator {
         return format.toString(operand_0, base);
     }
 
-    public void setBase(Base newBase) {
-        base = newBase;
-    }
-
     public Base getBase() {
         return base;
     }
 
-    public void setFormat(Format newFormat) {
-        format = newFormat;
+    public void setBase(Base newBase) {
+        base = newBase;
     }
 
     public Format getFormat() {
         return format;
+    }
+
+    public void setFormat(Format newFormat) {
+        format = newFormat;
     }
 
     public int getCounter() {

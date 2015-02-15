@@ -1,14 +1,14 @@
 package test;
 
 import multiformat.Rational;
+
 import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
 /**
- * JUnit Testcase to test Rational.
- * Note that this class uses 'annotations' (the @...). This is a Java 1.5 feature.
+ * JUnit Test case to test rational.
  *
  * @author Nils Berlijn
  * @author Tom Broenink

@@ -18,6 +18,10 @@ public class CalculatorGUI extends JFrame {
         makeGUI();
     }
 
+    public static void main(String[] args) {
+        new CalculatorGUI();
+    }
+
     private void makeGUI() {
         JFrame.setDefaultLookAndFeelDecorated(true);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -36,10 +40,6 @@ public class CalculatorGUI extends JFrame {
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         this.setVisible(true);
-    }
-
-    public static void main(String[] args) {
-        new CalculatorGUI();
     }
 
 }
