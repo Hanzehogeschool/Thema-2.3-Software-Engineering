@@ -1,10 +1,8 @@
-package nl.hanze.dice;
-
-import nl.hanze.dice.controllers.DiceController;
-import nl.hanze.dice.views.DiceView;
-import nl.hanze.dice.views.StatisticsView;
-import nl.hanze.dice.models.DiceModel;
-import nl.hanze.dice.views.TextView;
+import controllers.DiceController;
+import views.DiceView;
+import views.StatisticsView;
+import models.DiceModel;
+import views.TextView;
 
 import javax.swing.*;
 import java.awt.*;

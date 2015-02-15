@@ -1,6 +1,6 @@
-package nl.hanze.dice.views;
+package views;
 
-import nl.hanze.dice.models.DiceModel;
+import models.DiceModel;
 
 import javax.swing.*;
 import java.awt.*;

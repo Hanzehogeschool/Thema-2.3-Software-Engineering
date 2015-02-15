@@ -1,6 +1,6 @@
-package nl.hanze.dice.controllers;
+package controllers;
 
-import nl.hanze.dice.models.DiceModel;
+import models.DiceModel;
 
 import javax.swing.*;
 import java.awt.*;

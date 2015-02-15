@@ -1,4 +1,4 @@
-package nl.hanze.dice.models;
+package models;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
