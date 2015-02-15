@@ -20,20 +20,21 @@ package multiformat;
 
 
 public abstract class Format {
-  // public members
-  public abstract String getName();
+    // public members
+    public abstract String getName();
 
-  // package visible member
-  /**
-   * Translate the internal Rational to a String representation
-   * using the correct Format and Base.
-   */
-  abstract String toString(Rational p_number, Base p_base);
-  
-  /**
-   * Translate a string representation in a specific format and base to
-   * the internal Rational representation.
-   */
-  abstract Rational parse(String p_number, Base p_base) throws FormatException;
+    // package visible member
+
+    /**
+     * Translate the internal Rational to a String representation
+     * using the correct Format and Base.
+     */
+    abstract String toString(Rational p_number, Base p_base);
+
+    /**
+     * Translate a string representation in a specific format and base to
+     * the internal Rational representation.
+     */
+    abstract Rational parse(String p_number, Base p_base) throws FormatException;
 
 }

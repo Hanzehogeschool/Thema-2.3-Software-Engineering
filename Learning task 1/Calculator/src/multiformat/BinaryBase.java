@@ -19,11 +19,11 @@
 package multiformat;
 
 /**
- * Bynary numbering base. 
+ * Bynary numbering base.
  */
-public class BinaryBase extends Base{
-	
-  public BinaryBase() {
-    super("bin",2,"01");
-  }
+public class BinaryBase extends Base {
+
+    public BinaryBase() {
+        super("bin", 2, "01");
+    }
 }

@@ -1,25 +1,7 @@
-/*
- * (C) Copyright 2005 Davide Brugali, Marco Torchiano
- *
- * This program is free software; you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation; either version 2 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program; if not, write to the Free Software
- * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA
- * 02111-1307  USA
- */
 package multiformat;
 
 /**
- * Class representing a rational ('breuk').
+ * Class representing a rational.
  *
  * @author Nils Berlijn
  * @author Tom Broenink
@@ -27,18 +9,32 @@ package multiformat;
  */
 public class Rational {
 
+    /**
+     * The precision.
+     */
     static final double PRECISION = 10;
-    static final double EPSILON = Math.pow(10, -PRECISION);
-
-    double numerator = 0.0; // teller
-    double denominator = 1.0; // noemer
 
     /**
-     * Constructor
-     * Create a new Rational
+     * The epsilon.
+     */
+    static final double EPSILON = Math.pow(10, -PRECISION);
+
+    /**
+     * The numerator.
+     */
+    double numerator = 0.0;
+
+    /**
+     * The denominator.
+     */
+    double denominator = 1.0;
+
+    /**
+     * Constructor.
+     * Create a new Rational.
      *
-     * @param num Numerator
-     * @param den Denominator
+     * @param num Numerator.
+     * @param den Denominator.
      */
     public Rational(double num, double den) {
         numerator = num;
@@ -47,20 +43,19 @@ public class Rational {
     }
 
     /**
-     * Constructor
-     * Create a new Rational
-     * Parameter-free Constructor
+     * Constructor.
+     * Create a new Rational.
+     * Parameter-free Constructor.
      */
     public Rational() {
 
     }
 
     /**
-     * Constructor
-     * Create a new Rational
-     * User for double
+     * Constructor.
+     * Create a new Rational.
      *
-     * @param number Number
+     * @param number Number.
      */
     public Rational(double number) {
         numerator = number;
@@ -99,16 +94,14 @@ public class Rational {
      * @see test.TestRational
      */
     public void simplify() {
-        // Take the smallest from the two (10.0)
         double divisor = Math.min(Math.abs(numerator), denominator);
-        // Step from 10.0 to 9.0 to ... 1.0
+
         for (; divisor > 1.0; divisor -= 1.0) {
             double rn = Math.abs(
                     Math.IEEEremainder(Math.abs(numerator), divisor));
             double rd = Math.abs(
                     Math.IEEEremainder(denominator, divisor));
-            // If both the numerator and denominator have a very small remainder
-            // then they can both be divided by devisor (in our example 5).
+
             if (rn < EPSILON && rd < EPSILON) {
                 numerator /= divisor;
                 denominator /= divisor;
@@ -124,16 +117,14 @@ public class Rational {
      * @return A new Rational representing the sum.
      */
     public Rational plus(Rational other) {
-        if (denominator == other.denominator)
+        if (denominator == other.denominator) {
             return new Rational(numerator + other.numerator
                     , other.denominator);
-        else
-            // a/x + b/y =
-            // (breuken gelijknamig maken)
-            // a*y/x*y + b*x/x*y = (a*y + b*x)/x*y
+        } else {
             return new Rational(numerator * other.denominator +
                     denominator * other.numerator
                     , denominator * other.denominator);
+        }
     }
 
     /**
@@ -143,12 +134,13 @@ public class Rational {
      * @return A new Rational representing the sum.
      */
     public Rational minus(Rational other) {
-        if (denominator == other.denominator)
+        if (denominator == other.denominator) {
             return new Rational(numerator - other.numerator, denominator);
-        else
+        } else {
             return new Rational(numerator * other.denominator -
                     denominator * other.numerator
                     , denominator * other.denominator);
+        }
     }
 
     /**
@@ -171,9 +163,12 @@ public class Rational {
      * @return A new Rational representing the sum.
      */
     public Rational div(Rational other) {
-        return new Rational(
-                numerator * other.denominator,
-                denominator * other.numerator);
+        if (other.numerator != 0.0 || other.denominator != 0.0) {
+            return new Rational(numerator * other.denominator, denominator * other.numerator);
+        } else {
+            System.err.print("Error! Cannot divide 0\n");
+            return new Rational(1, 1);
+        }
     }
 
     /**
@@ -185,8 +180,6 @@ public class Rational {
         this.numerator = other.numerator;
         this.denominator = other.denominator;
     }
-
-	/* getters and setters for unittesting purposes. */
 
     /**
      * Get the numerator.
