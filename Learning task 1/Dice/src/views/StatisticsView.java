@@ -6,7 +6,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-// Opgave 8
 public class StatisticsView extends JPanel implements ActionListener {
 
     DiceModel diceModel;
