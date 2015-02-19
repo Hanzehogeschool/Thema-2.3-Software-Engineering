@@ -39,7 +39,7 @@ public class TreeOrders {
     }
 
     /**
-     * Representation the in-order of the tree.
+     * Performs the in-order of the tree.
      */
     public void inOrder() {
         TreeNode current = root;
@@ -58,7 +58,7 @@ public class TreeOrders {
     }
 
     /**
-     * Representation the pre-order of the tree.
+     * Performs the pre-order of the tree.
      */
     public void preOrder() {
         TreeNode current = root;
@@ -80,7 +80,7 @@ public class TreeOrders {
     }
 
     /**
-     * Representation the post-order of the tree.
+     * Performs the post-order of the tree.
      */
     public void postOrder() {
         TreeNode current = root;
