@@ -37,12 +37,12 @@ public class TreeTraversal {
     public TreeTraversal(Integer treeSize, Integer treeRootValue, Integer treeMaxValue) {
         System.out.println(ANSI.ANSI_BLUE + "Tree Traversal\n");
 
-        System.out.println(ANSI.ANSI_YELLOW + "Initializing tree...");
+        System.out.println(ANSI.ANSI_YELLOW + "Initializing the tree...");
         Tree tree = new Tree(treeSize, treeRootValue, treeMaxValue);
         tree.generateTree();
         System.out.println(tree.toString());
 
-        System.out.println(ANSI.ANSI_YELLOW + "Initializing tree orders...");
+        System.out.println(ANSI.ANSI_YELLOW + "Initializing the tree orders...");
         TreeOrders treeOrders = new TreeOrders(tree.getTreeNode());
 
         System.out.print(ANSI.ANSI_MAGENTA + "In-order: ");
@@ -62,7 +62,7 @@ public class TreeTraversal {
      * The main method.
      * Creates a new tree traversal with or without arguments.
      *
-     * @param args Arguments for the size, root value and the max value of the tree
+     * @param args The arguments for the tee traversal.
      */
     public static void main(String[] args) {
         if (args.length > 0) {
