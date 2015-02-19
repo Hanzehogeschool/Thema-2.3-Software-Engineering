@@ -2,18 +2,45 @@ package tree;
 
 import java.util.Stack;
 
+/**
+ * Class representing tree orders.
+ *
+ * @author Nils Berlijn
+ * @author Tom Broeninkg
+ * @version 1.0
+ */
 public class TreeOrders {
 
+    /**
+     * The root tree node.
+     */
     private TreeNode root;
+
+    /**
+     * The stack.
+     */
     private Stack<TreeNode> stack;
+
+    /**
+     * The string.
+     */
     private String string;
 
+    /**
+     * A constructor.
+     * Creates new tree orders.
+     *
+     * @param treeNode The tree node.
+     */
     public TreeOrders(TreeNode treeNode) {
         this.root = treeNode;
         this.stack = new Stack<TreeNode>();
         this.string = "";
     }
 
+    /**
+     * Representation the in-order of the tree.
+     */
     public void inOrder() {
         TreeNode current = root;
         string = "";
@@ -30,6 +57,9 @@ public class TreeOrders {
         }
     }
 
+    /**
+     * Representation the pre-order of the tree.
+     */
     public void preOrder() {
         TreeNode current = root;
         string = "";
@@ -49,6 +79,9 @@ public class TreeOrders {
         }
     }
 
+    /**
+     * Representation the post-order of the tree.
+     */
     public void postOrder() {
         TreeNode current = root;
         string = "";
@@ -72,6 +105,11 @@ public class TreeOrders {
         }
     }
 
+    /**
+     * Returns a string representation the tree orders.
+     *
+     * @return The string.
+     */
     @Override
     public String toString() {
         return string.substring(0, string.length() - 2);
