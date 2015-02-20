@@ -88,6 +88,7 @@ public class SpeedExercise {
         printResults();
 
         System.out.println(ANSI.ANSI_YELLOW + "Performing algorithm d...");
+        numberRow.sort();
         startTime = time();
         found = numberRow.algorithmD(searchNumber);
         endTime = time();

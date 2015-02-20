@@ -99,12 +99,12 @@ public class NumberRow {
     public boolean algorithmC(int searchValue) {
         int index = 0;
 
-        while (index < searchValue) {
+        while (index < numbers.length) {
             if (numbers[index] == searchValue) {
                 return true;
-            } else if (numbers[index] < searchValue) {
-                return false;
             }
+
+            index++;
         }
 
         return false;
