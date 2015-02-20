@@ -2,7 +2,6 @@ package test;
 
 import multiformat.Calculator;
 import multiformat.OctalBase;
-
 import org.junit.Before;
 import org.junit.Test;
 

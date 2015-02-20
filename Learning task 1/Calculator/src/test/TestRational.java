@@ -1,7 +1,6 @@
 package test;
 
 import multiformat.Rational;
-
 import org.junit.Before;
 import org.junit.Test;
 

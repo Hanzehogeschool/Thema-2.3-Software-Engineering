@@ -1,7 +1,6 @@
 package test;
 
 import junit.framework.TestCase;
-
 import multiformat.*;
 
 public class TestFormat extends TestCase {

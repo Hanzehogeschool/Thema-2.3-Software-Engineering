@@ -35,7 +35,7 @@ public class TreeNode {
      *
      * @param value The value of the tree node.
      */
-    public TreeNode(Integer value){
+    public TreeNode(Integer value) {
         setValue(value);
         setLeft(null);
         setRight(null);

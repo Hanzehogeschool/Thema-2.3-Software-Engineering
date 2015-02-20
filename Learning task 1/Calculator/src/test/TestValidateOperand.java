@@ -2,7 +2,6 @@ package test;
 
 import multiformat.Calculator;
 import multiformat.HexBase;
-
 import org.junit.Before;
 import org.junit.Test;
 

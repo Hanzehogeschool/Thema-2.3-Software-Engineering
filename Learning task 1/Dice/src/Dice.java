@@ -1,7 +1,7 @@
 import controllers.DiceController;
+import models.DiceModel;
 import views.DiceView;
 import views.StatisticsView;
-import models.DiceModel;
 import views.TextView;
 
 import javax.swing.*;

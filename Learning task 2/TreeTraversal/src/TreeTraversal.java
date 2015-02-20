@@ -30,9 +30,9 @@ public class TreeTraversal {
      * A constructor.
      * Creates a new tree traversal.
      *
-     * @param treeSize The size of the tree.
+     * @param treeSize      The size of the tree.
      * @param treeRootValue The root value of the tree.
-     * @param treeMaxValue The max value of the tree.
+     * @param treeMaxValue  The max value of the tree.
      */
     public TreeTraversal(Integer treeSize, Integer treeRootValue, Integer treeMaxValue) {
         System.out.println(ANSI.ANSI_BLUE + "Tree Traversal\n");

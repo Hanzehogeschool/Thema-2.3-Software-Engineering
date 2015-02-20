@@ -13,11 +13,11 @@ public class SpeedExercise {
     public static void main(String[] args) {
         System.out.println(ANSI.ANSI_BLUE + "Speed Exercise\n");
 
-        algorithmsTest();
-        speedTest(TEST_AMOUNT);
+        testAlgorithms();
+        testAlgorithmAvsAlgorithmB(TEST_AMOUNT);
     }
 
-    private static void algorithmsTest() {
+    private static void testAlgorithms() {
         System.out.println(ANSI.ANSI_YELLOW + "Performing algorithms test...");
         NumberRow numberRow = new NumberRow(AMOUNT, MAXIMUM);
         searchNumber = randomNumber();
@@ -49,15 +49,15 @@ public class SpeedExercise {
         printResults();
     }
 
-    private static void speedTest(int testAmount) {
-        System.out.println(ANSI.ANSI_YELLOW + "Performing speed test for the algorithms a and b...");
+    private static void testAlgorithmAvsAlgorithmB(int testAmount) {
+        System.out.println(ANSI.ANSI_YELLOW + "Performing algorithm a versus algorithm b test...");
         NumberRow[] numberRows = new NumberRow[testAmount];
 
         for (int i = 0; i < testAmount; i++) {
             numberRows[i] = new NumberRow(AMOUNT, MAXIMUM);
         }
 
-        System.out.println(ANSI.ANSI_MAGENTA + "Search\t\tAlgorithm a\t\tAlgorithm b");
+        System.out.println(ANSI.ANSI_MAGENTA + "Search value\tAlgorithm a\t\tAlgorithm b");
 
         for (NumberRow numberRow : numberRows) {
             searchNumber = randomNumber();
@@ -66,7 +66,7 @@ public class SpeedExercise {
             startTime = time();
             found = numberRow.algorithmA(searchNumber);
             endTime = time();
-            System.out.print("\t\t" + (endTime - startTime) + " ms");
+            System.out.print("\t\t\t" + (endTime - startTime) + " ms");
 
             startTime = time();
             found = numberRow.algorithmB(searchNumber);
@@ -87,9 +87,9 @@ public class SpeedExercise {
         String string;
 
         if (found) {
-            string = ANSI.ANSI_GREEN + "Number " + searchNumber + " is found, ";
+            string = ANSI.ANSI_GREEN + "Value " + searchNumber + " is found, ";
         } else {
-            string = ANSI.ANSI_RED + "Number " + searchNumber + " is not found, ";
+            string = ANSI.ANSI_RED + "Value " + searchNumber + " is not found, ";
         }
 
         string += "the search took " + (endTime - startTime) + " ms.\n";

@@ -81,7 +81,7 @@ public class TreeBuilder {
     private String order(Enumeration<?> enumeration) {
         String order = "";
 
-        while(enumeration.hasMoreElements()) {
+        while (enumeration.hasMoreElements()) {
             order += enumeration.nextElement() + " ";
         }
 
