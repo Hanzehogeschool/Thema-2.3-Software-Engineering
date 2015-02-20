@@ -1,0 +1,258 @@
+Features;8
+Items;256
+Item1;1;1;1;1;1;1;1;1;Royal de luxe
+Item2;1;1;1;1;1;1;1;0;Royal de luxe
+Item3;1;1;1;1;1;1;0;1;Royal de luxe
+Item4;1;1;1;1;1;1;0;0;Royal de luxe
+Item5;1;1;1;1;1;0;1;1;Royal de luxe
+Item6;1;1;1;1;1;0;1;0;Royal de luxe
+Item7;1;1;1;1;1;0;0;1;Royal de luxe
+Item8;1;1;1;1;1;0;0;0;Royal de luxe
+Item9;1;1;1;1;0;1;1;1;Royal de luxe
+Item10;1;1;1;1;0;1;1;0;Royal de luxe
+Item11;1;1;1;1;0;1;0;1;Royal de luxe
+Item12;1;1;1;1;0;1;0;0;Royal de luxe
+Item13;1;1;1;1;0;0;1;1;Royal de luxe
+Item14;1;1;1;1;0;0;1;0;Royal de luxe
+Item15;1;1;1;1;0;0;0;1;Royal de luxe
+Item16;1;1;1;1;0;0;0;0;Royal de luxe
+Item17;1;1;1;0;1;1;1;1;Royal
+Item18;1;1;1;0;1;1;1;0;Royal
+Item19;1;1;1;0;1;1;0;1;Royal
+Item20;1;1;1;0;1;1;0;0;Royal
+Item21;1;1;1;0;1;0;1;1;Royal
+Item22;1;1;1;0;1;0;1;0;Royal
+Item23;1;1;1;0;1;0;0;1;Royal
+Item24;1;1;1;0;1;0;0;0;Royal
+Item25;1;1;1;0;0;1;1;1;Royal
+Item26;1;1;1;0;0;1;1;0;De luxe
+Item27;1;1;1;0;0;1;0;1;De luxe
+Item28;1;1;1;0;0;1;0;0;De luxe
+Item29;1;1;1;0;0;0;1;1;De luxe
+Item30;1;1;1;0;0;0;1;0;De luxe
+Item31;1;1;1;0;0;0;0;1;De luxe
+Item32;1;1;1;0;0;0;0;0;De luxe
+Item33;1;1;0;1;1;1;1;1;De luxe
+Item34;1;1;0;1;1;1;1;0;De luxe
+Item35;1;1;0;1;1;1;0;1;De luxe
+Item36;1;1;0;1;1;1;0;0;De luxe
+Item37;1;1;0;1;1;0;1;1;De luxe
+Item38;1;1;0;1;1;0;1;0;Comfort Plus
+Item39;1;1;0;1;1;0;0;1;Comfort Plus
+Item40;1;1;0;1;1;0;0;0;Comfort Plus
+Item41;1;1;0;1;0;1;1;1;Comfort
+Item42;1;1;0;1;0;1;1;0;Comfort
+Item43;1;1;0;1;0;1;0;1;Comfort
+Item44;1;1;0;1;0;1;0;0;Comfort
+Item45;1;1;0;1;0;0;1;1;Comfort
+Item46;1;1;0;1;0;0;1;0;Comfort
+Item47;1;1;0;1;0;0;0;1;Comfort
+Item48;1;1;0;1;0;0;0;0;Comfort
+Item49;1;1;0;0;1;1;1;1;Comfort
+Item50;1;1;0;0;1;1;1;0;Comfort
+Item51;1;1;0;0;1;1;0;1;Comfort
+Item52;1;1;0;0;1;1;0;0;Comfort
+Item53;1;1;0;0;1;0;1;1;Comfort
+Item54;1;1;0;0;1;0;1;0;Comfort
+Item55;1;1;0;0;1;0;0;1;Comfort
+Item56;1;1;0;0;1;0;0;0;Medium
+Item57;1;1;0;0;0;1;1;1;Medium
+Item58;1;1;0;0;0;1;1;0;Medium
+Item59;1;1;0;0;0;1;0;1;Medium
+Item60;1;1;0;0;0;1;0;0;Medium
+Item61;1;1;0;0;0;0;1;1;Medium
+Item62;1;1;0;0;0;0;1;0;Medium
+Item63;1;1;0;0;0;0;0;1;Medium
+Item64;1;1;0;0;0;0;0;0;Medium
+Item65;1;0;1;1;1;1;1;1;Medium
+Item66;1;0;1;1;1;1;1;0;Medium
+Item67;1;0;1;1;1;1;0;1;Medium
+Item68;1;0;1;1;1;1;0;0;Medium
+Item69;1;0;1;1;1;0;1;1;Medium
+Item70;1;0;1;1;1;0;1;0;Medium
+Item71;1;0;1;1;1;0;0;1;Medium
+Item72;1;0;1;1;1;0;0;0;Medium
+Item73;1;0;1;1;0;1;1;1;Medium
+Item74;1;0;1;1;0;1;1;0;Medium
+Item75;1;0;1;1;0;1;0;1;Medium
+Item76;1;0;1;1;0;1;0;0;Medium
+Item77;1;0;1;1;0;0;1;1;Medium
+Item78;1;0;1;1;0;0;1;0;Medium
+Item79;1;0;1;1;0;0;0;1;Medium
+Item80;1;0;1;1;0;0;0;0;Medium
+Item81;1;0;1;0;1;1;1;1;Medium
+Item82;1;0;1;0;1;1;1;0;Medium
+Item83;1;0;1;0;1;1;0;1;Medium
+Item84;1;0;1;0;1;1;0;0;Medium
+Item85;1;0;1;0;1;0;1;1;Medium
+Item86;1;0;1;0;1;0;1;0;Medium
+Item87;1;0;1;0;1;0;0;1;Medium
+Item88;1;0;1;0;1;0;0;0;Medium
+Item89;1;0;1;0;0;1;1;1;Medium
+Item90;1;0;1;0;0;1;1;0;Medium
+Item91;1;0;1;0;0;1;0;1;Medium
+Item92;1;0;1;0;0;1;0;0;Medium
+Item93;1;0;1;0;0;0;1;1;Medium
+Item94;1;0;1;0;0;0;1;0;Medium
+Item95;1;0;1;0;0;0;0;1;Medium
+Item96;1;0;1;0;0;0;0;0;Medium
+Item97;1;0;0;1;1;1;1;1;Medium
+Item98;1;0;0;1;1;1;1;0;Medium
+Item99;1;0;0;1;1;1;0;1;Medium
+Item100;1;0;0;1;1;1;0;0;Medium
+Item101;1;0;0;1;1;0;1;1;Medium
+Item102;1;0;0;1;1;0;1;0;Medium
+Item103;1;0;0;1;1;0;0;1;Medium
+Item104;1;0;0;1;1;0;0;0;Medium
+Item105;1;0;0;1;0;1;1;1;Medium
+Item106;1;0;0;1;0;1;1;0;Medium
+Item107;1;0;0;1;0;1;0;1;Medium
+Item108;1;0;0;1;0;1;0;0;Medium
+Item109;1;0;0;1;0;0;1;1;Medium
+Item110;1;0;0;1;0;0;1;0;Medium
+Item111;1;0;0;1;0;0;0;1;Medium
+Item112;1;0;0;1;0;0;0;0;Medium
+Item113;1;0;0;0;1;1;1;1;Medium
+Item114;1;0;0;0;1;1;1;0;Medium
+Item115;1;0;0;0;1;1;0;1;Medium
+Item116;1;0;0;0;1;1;0;0;Medium
+Item117;1;0;0;0;1;0;1;1;Medium
+Item118;1;0;0;0;1;0;1;0;Medium
+Item119;1;0;0;0;1;0;0;1;Medium
+Item120;1;0;0;0;1;0;0;0;Medium
+Item121;1;0;0;0;0;1;1;1;Medium
+Item122;1;0;0;0;0;1;1;0;Medium
+Item123;1;0;0;0;0;1;0;1;Medium
+Item124;1;0;0;0;0;1;0;0;Medium
+Item125;1;0;0;0;0;0;1;1;Medium Low
+Item126;1;0;0;0;0;0;1;0;Medium Low
+Item127;1;0;0;0;0;0;0;1;Medium Low
+Item128;1;0;0;0;0;0;0;0;Medium Low
+Item129;0;1;1;1;1;1;1;1;Medium Low
+Item130;0;1;1;1;1;1;1;0;Medium Low
+Item131;0;1;1;1;1;1;0;1;Medium Low
+Item132;0;1;1;1;1;1;0;0;Medium Low
+Item133;0;1;1;1;1;0;1;1;Medium Low
+Item134;0;1;1;1;1;0;1;0;Medium Low
+Item135;0;1;1;1;1;0;0;1;Medium Low
+Item136;0;1;1;1;1;0;0;0;Medium Low
+Item137;0;1;1;1;0;1;1;1;Medium Low
+Item138;0;1;1;1;0;1;1;0;Medium Low
+Item139;0;1;1;1;0;1;0;1;Saver
+Item140;0;1;1;1;0;1;0;0;Saver
+Item141;0;1;1;1;0;0;1;1;Saver
+Item142;0;1;1;1;0;0;1;0;Saver
+Item143;0;1;1;1;0;0;0;1;Saver
+Item144;0;1;1;1;0;0;0;0;Saver
+Item145;0;1;1;0;1;1;1;1;Saver
+Item146;0;1;1;0;1;1;1;0;Saver
+Item147;0;1;1;0;1;1;0;1;Saver
+Item148;0;1;1;0;1;1;0;0;Saver
+Item149;0;1;1;0;1;0;1;1;Saver
+Item150;0;1;1;0;1;0;1;0;Saver
+Item151;0;1;1;0;1;0;0;1;Saver
+Item152;0;1;1;0;1;0;0;0;Saver
+Item153;0;1;1;0;0;1;1;1;Saver
+Item154;0;1;1;0;0;1;1;0;Saver
+Item155;0;1;1;0;0;1;0;1;Saver
+Item156;0;1;1;0;0;1;0;0;Saver
+Item157;0;1;1;0;0;0;1;1;Saver
+Item158;0;1;1;0;0;0;1;0;Saver
+Item159;0;1;1;0;0;0;0;1;Saver
+Item160;0;1;1;0;0;0;0;0;Saver
+Item161;0;1;0;1;1;1;1;1;Saver
+Item162;0;1;0;1;1;1;1;0;Cheap saver
+Item163;0;1;0;1;1;1;0;1;Cheap saver
+Item164;0;1;0;1;1;1;0;0;Cheap saver
+Item165;0;1;0;1;1;0;1;1;Cheap saver
+Item166;0;1;0;1;1;0;1;0;Cheap saver
+Item167;0;1;0;1;1;0;0;1;Cheap saver
+Item168;0;1;0;1;1;0;0;0;Cheap saver
+Item169;0;1;0;1;0;1;1;1;Cheap saver
+Item170;0;1;0;1;0;1;1;0;Cheap saver
+Item171;0;1;0;1;0;1;0;1;Cheap saver
+Item172;0;1;0;1;0;1;0;0;Cheap saver
+Item173;0;1;0;1;0;0;1;1;Cheap saver
+Item174;0;1;0;1;0;0;1;0;Cheap saver
+Item175;0;1;0;1;0;0;0;1;Cheap saver
+Item176;0;1;0;1;0;0;0;0;Cheap saver
+Item177;0;1;0;0;1;1;1;1;Cheap saver
+Item178;0;1;0;0;1;1;1;0;Cheap saver
+Item179;0;1;0;0;1;1;0;1;Cheap saver
+Item180;0;1;0;0;1;1;0;0;Cheap saver
+Item181;0;1;0;0;1;0;1;1;Cheap saver
+Item182;0;1;0;0;1;0;1;0;Cheap saver
+Item183;0;1;0;0;1;0;0;1;Cheap saver
+Item184;0;1;0;0;1;0;0;0;Cheap saver
+Item185;0;1;0;0;0;1;1;1;Cheap saver
+Item186;0;1;0;0;0;1;1;0;Cheap saver
+Item187;0;1;0;0;0;1;0;1;Cheap saver
+Item188;0;1;0;0;0;1;0;0;Cheap saver
+Item189;0;1;0;0;0;0;1;1;Cheap saver
+Item190;0;1;0;0;0;0;1;0;Cheap saver
+Item191;0;1;0;0;0;0;0;1;Cheap saver
+Item192;0;1;0;0;0;0;0;0;Cheap saver
+Item193;0;0;1;1;1;1;1;1;Cheap saver
+Item194;0;0;1;1;1;1;1;0;Cheap saver
+Item195;0;0;1;1;1;1;0;1;Cheap saver
+Item196;0;0;1;1;1;1;0;0;Cheap saver
+Item197;0;0;1;1;1;0;1;1;Cheap saver
+Item198;0;0;1;1;1;0;1;0;Cheap saver
+Item199;0;0;1;1;1;0;0;1;Cheap saver
+Item200;0;0;1;1;1;0;0;0;Cheap saver
+Item201;0;0;1;1;0;1;1;1;Cheap saver
+Item202;0;0;1;1;0;1;1;0;Cheap saver
+Item203;0;0;1;1;0;1;0;1;Cheap saver
+Item204;0;0;1;1;0;1;0;0;Cheap saver
+Item205;0;0;1;1;0;0;1;1;Cheap saver
+Item206;0;0;1;1;0;0;1;0;Cheap saver
+Item207;0;0;1;1;0;0;0;1;Cheap saver
+Item208;0;0;1;1;0;0;0;0;Super saver
+Item209;0;0;1;0;1;1;1;1;Super saver
+Item210;0;0;1;0;1;1;1;0;Super saver
+Item211;0;0;1;0;1;1;0;1;Super saver
+Item212;0;0;1;0;1;1;0;0;Super saver
+Item213;0;0;1;0;1;0;1;1;Super saver
+Item214;0;0;1;0;1;0;1;0;Super saver
+Item215;0;0;1;0;1;0;0;1;Super saver
+Item216;0;0;1;0;1;0;0;0;Super saver
+Item217;0;0;1;0;0;1;1;1;Super saver
+Item218;0;0;1;0;0;1;1;0;Super saver
+Item219;0;0;1;0;0;1;0;1;Super saver
+Item220;0;0;1;0;0;1;0;0;Super saver
+Item221;0;0;1;0;0;0;1;1;Super saver
+Item222;0;0;1;0;0;0;1;0;Super saver
+Item223;0;0;1;0;0;0;0;1;Super saver
+Item224;0;0;1;0;0;0;0;0;Super saver
+Item225;0;0;0;1;1;1;1;1;Super saver
+Item226;0;0;0;1;1;1;1;0;Super saver
+Item227;0;0;0;1;1;1;0;1;Super saver
+Item228;0;0;0;1;1;1;0;0;Super saver
+Item229;0;0;0;1;1;0;1;1;Super saver
+Item230;0;0;0;1;1;0;1;0;Super saver
+Item231;0;0;0;1;1;0;0;1;Super saver
+Item232;0;0;0;1;1;0;0;0;Super saver
+Item233;0;0;0;1;0;1;1;1;Super saver
+Item234;0;0;0;1;0;1;1;0;Super saver
+Item235;0;0;0;1;0;1;0;1;Super saver
+Item236;0;0;0;1;0;1;0;0;Super saver
+Item237;0;0;0;1;0;0;1;1;Super saver
+Item238;0;0;0;1;0;0;1;0;Super saver
+Item239;0;0;0;1;0;0;0;1;Super saver
+Item240;0;0;0;1;0;0;0;0;Super saver
+Item241;0;0;0;0;1;1;1;1;Super saver
+Item242;0;0;0;0;1;1;1;0;Super saver
+Item243;0;0;0;0;1;1;0;1;Super saver
+Item244;0;0;0;0;1;1;0;0;Super saver
+Item245;0;0;0;0;1;0;1;1;Super saver
+Item246;0;0;0;0;1;0;1;0;Super saver
+Item247;0;0;0;0;1;0;0;1;Super saver
+Item248;0;0;0;0;1;0;0;0;Super saver
+Item249;0;0;0;0;0;1;1;1;Super saver
+Item250;0;0;0;0;0;1;1;0;Super saver
+Item251;0;0;0;0;0;1;0;1;Super saver
+Item252;0;0;0;0;0;1;0;0;Super saver
+Item253;0;0;0;0;0;0;1;1;Super saver
+Item254;0;0;0;0;0;0;1;0;Super saver
+Item255;0;0;0;0;0;0;0;1;Super saver
+Item256;0;0;0;0;0;0;0;0;Super saver
