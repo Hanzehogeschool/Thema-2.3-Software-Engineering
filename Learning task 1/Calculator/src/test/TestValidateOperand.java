@@ -8,7 +8,7 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
 /**
- * JUnit Test case to test the method validate operand from calculator.
+ * JUnit test to test the method validate operand from calculator.
  *
  * @author Nils Berlijn
  * @author Tom Broenink
@@ -27,7 +27,7 @@ public class TestValidateOperand {
     HexBase hexBase;
 
     /**
-     * Set up the tests.
+     * Sets up the tests.
      */
     @Before
     public void setUp() {

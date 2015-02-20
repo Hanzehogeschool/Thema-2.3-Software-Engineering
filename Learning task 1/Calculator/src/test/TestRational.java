@@ -7,7 +7,7 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
 /**
- * JUnit Test case to test rational.
+ * JUnit test to test rational.
  *
  * @author Nils Berlijn
  * @author Tom Broenink
@@ -21,7 +21,7 @@ public class TestRational {
     Rational rational;
 
     /**
-     * Set up the tests.
+     * Sets up the tests.
      */
     @Before
     public void setUp() {

@@ -1,8 +1,5 @@
 package multiformat;
 
-/**
- * Decimal numbering base
- */
 public class DecimalBase extends Base {
 
     public DecimalBase() {

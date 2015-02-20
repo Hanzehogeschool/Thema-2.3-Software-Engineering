@@ -10,6 +10,7 @@ package multiformat;
 public class NumberBaseException extends Exception {
 
     /**
+     * Number base exception constructor.
      * Throws a number base exception.
      *
      * @param message Message.

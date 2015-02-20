@@ -46,7 +46,7 @@ public class Tree {
     private String string;
 
     /**
-     * A constructor.
+     * Tree constructor.
      * Creates a new tree.
      *
      * @param treeSize      The size of the tree.
@@ -123,7 +123,7 @@ public class Tree {
     }
 
     /**
-     * Get the tree node.
+     * Gets the tree node.
      *
      * @return The tree node.
      */
@@ -132,7 +132,7 @@ public class Tree {
     }
 
     /**
-     * Returns a string representation the tree.
+     * The string representation the tree.
      *
      * @return The string.
      */

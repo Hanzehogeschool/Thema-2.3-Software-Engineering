@@ -10,9 +10,9 @@ package multiformat;
 public class OctalBase extends Base {
 
     /**
-     * Constructor.
-     * Create a new OctalBase.
-     * Parameter-free Constructor.
+     * Octal base constructor.
+     * Parameter-free constructor.
+     * Creates a new octal base.
      */
     public OctalBase() {
         super("oct", 8, "01234567");

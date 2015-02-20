@@ -30,8 +30,8 @@ public class Rational {
     double denominator = 1.0;
 
     /**
-     * Constructor.
-     * Create a new rational.
+     * Rational constructor.
+     * Creates a new rational.
      *
      * @param num Numerator.
      * @param den Denominator.
@@ -43,17 +43,17 @@ public class Rational {
     }
 
     /**
-     * Constructor.
-     * Create a new rational.
+     * Rational constructor.
      * Parameter-free Constructor.
+     * Creates a new rational.
      */
     public Rational() {
 
     }
 
     /**
-     * Constructor.
-     * Create a new rational.
+     * Rational constructor.
+     * Creates a new rational.
      *
      * @param number Number.
      */
@@ -111,7 +111,7 @@ public class Rational {
     }
 
     /**
-     * Add two rationals.
+     * Adds two rationals.
      *
      * @param other Another rational to add to this.
      * @return A new rational representing the sum.
@@ -183,7 +183,7 @@ public class Rational {
     }
 
     /**
-     * Get the numerator.
+     * Gets the numerator.
      *
      * @return The numerator.
      */
@@ -192,7 +192,7 @@ public class Rational {
     }
 
     /**
-     * Set the numerator.
+     * Sets the numerator.
      *
      * @param num The new numerator.
      */
@@ -201,7 +201,7 @@ public class Rational {
     }
 
     /**
-     * Get the denominator.
+     * Gets the denominator.
      *
      * @return The denominator.
      */
@@ -210,7 +210,7 @@ public class Rational {
     }
 
     /**
-     * Set the denominator.
+     * Sets the denominator.
      *
      * @param den The new denominator.
      */

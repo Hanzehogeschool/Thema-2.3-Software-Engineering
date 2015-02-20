@@ -2,15 +2,38 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
 
+/**
+ * Class representing a number row.
+ *
+ * @author Nils Berlijn
+ * @author Tom Broeninkg
+ * @version 1.0
+ */
 public class NumberRow {
 
+    /**
+     * The numbers.
+     */
     private int[] numbers;
 
+    /**
+     * Number row constructor.
+     * Creates a new tree builder.
+     *
+     * @param amount  The amount.
+     * @param maximum The maximum.
+     */
     public NumberRow(int amount, int maximum) {
         numbers = new int[amount];
         fillArrayWithUniqueValues(amount, maximum);
     }
 
+    /**
+     * Fills the array with unique values.
+     *
+     * @param amount  The amount.
+     * @param maximum The maximum.
+     */
     private void fillArrayWithUniqueValues(int amount, int maximum) {
         ArrayList<Integer> helpList = new ArrayList<Integer>(maximum);
 
@@ -26,6 +49,12 @@ public class NumberRow {
         }
     }
 
+    /**
+     * Algorithm a.
+     *
+     * @param searchValue The search value.
+     * @return If the search value is found or not.
+     */
     public boolean algorithmA(int searchValue) {
         boolean found = false;
         int index = 0;
@@ -41,6 +70,12 @@ public class NumberRow {
         return found;
     }
 
+    /**
+     * Algorithm b.
+     *
+     * @param searchValue The search value.
+     * @return If the search value is found or not.
+     */
     public boolean algorithmB(int searchValue) {
         int index = 0;
 
@@ -55,6 +90,12 @@ public class NumberRow {
         return false;
     }
 
+    /**
+     * Algorithm c.
+     *
+     * @param searchValue The search value.
+     * @return If the search value is found or not.
+     */
     public boolean algorithmC(int searchValue) {
         int index = 0;
 
@@ -69,6 +110,12 @@ public class NumberRow {
         return false;
     }
 
+    /**
+     * Algorithm d.
+     *
+     * @param searchValue The search value.
+     * @return If the search value is found or not.
+     */
     public boolean algorithmD(int searchValue) {
         int lowest = 0;
         int highest = numbers.length - 1;
@@ -91,10 +138,16 @@ public class NumberRow {
         return false;
     }
 
+    /**
+     * Sorts the numbers.
+     */
     public void sort() {
         Arrays.sort(numbers);
     }
 
+    /**
+     * Prints the numbers.
+     */
     public void print() {
         for (Integer number : numbers) {
             System.out.println(number);

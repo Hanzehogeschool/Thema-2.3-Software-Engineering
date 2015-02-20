@@ -27,7 +27,7 @@ public class TreeOrders {
     private String string;
 
     /**
-     * A constructor.
+     * Tree orders constructor.
      * Creates new tree orders.
      *
      * @param treeNode The tree node.
@@ -106,7 +106,7 @@ public class TreeOrders {
     }
 
     /**
-     * Returns a string representation the tree orders.
+     * The string representation the tree orders.
      *
      * @return The string.
      */

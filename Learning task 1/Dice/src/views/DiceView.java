@@ -56,7 +56,7 @@ public class DiceView extends JPanel implements ActionListener {
             graphics.fillOval(60, 60, 10, 10);
             graphics.fillOval(10, 34, 10, 10);
             graphics.fillOval(60, 34, 10, 10);
-        } else ; // meer waarden zijn er niet
+        } else ;
     }
 
     public Dimension getPreferredSize() {

@@ -27,7 +27,7 @@ public class TreeTraversal {
     private static final Integer TREE_MAX_VALUE = 80;
 
     /**
-     * A constructor.
+     * Tree traversal constructor.
      * Creates a new tree traversal.
      *
      * @param treeSize      The size of the tree.

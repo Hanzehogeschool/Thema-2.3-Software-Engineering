@@ -33,7 +33,7 @@ public class TreeBuilder {
     DefaultMutableTreeNode usCustomer;
 
     /**
-     * A constructor.
+     * Tree builder constructor.
      * Creates a new tree builder.
      */
     public TreeBuilder() {
@@ -73,7 +73,7 @@ public class TreeBuilder {
     }
 
     /**
-     * Order the tree.
+     * Orders the tree.
      *
      * @param enumeration The enumeration.
      * @return An ordered tree.

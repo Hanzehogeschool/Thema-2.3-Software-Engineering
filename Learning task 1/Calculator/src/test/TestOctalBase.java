@@ -8,7 +8,7 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
 /**
- * JUnit Test case to test octal base.
+ * JUnit test to test octal base.
  *
  * @author Nils Berlijn
  * @author Tom Broenink
@@ -27,7 +27,7 @@ public class TestOctalBase {
     OctalBase octalBase;
 
     /**
-     * Set up the tests.
+     * Sets up the tests.
      */
     @Before
     public void setUp() {

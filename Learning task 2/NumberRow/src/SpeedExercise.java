@@ -1,15 +1,57 @@
 import utils.ANSI;
 
+import java.util.Random;
+
+/**
+ * Class representing a speed exercise.
+ *
+ * @author Nils Berlijn
+ * @author Tom Broeninkg
+ * @version 1.0
+ */
 public class SpeedExercise {
 
+    /**
+     * The amount.
+     */
     private static final int AMOUNT = 100000;
+
+    /**
+     * The maximum.
+     */
     private static final int MAXIMUM = 200000;
+
+    /**
+     * The test amount.
+     */
     private static final int TEST_AMOUNT = 5;
+
+    /**
+     * The start time.
+     */
     private static long startTime;
+
+    /**
+     * The end time.
+     */
     private static long endTime;
+
+    /**
+     * The found.
+     */
     private static boolean found;
+
+    /**
+     * The search number.
+     */
     private static int searchNumber;
 
+    /**
+     * The main method.
+     * Creates a new speed exercise without arguments.
+     *
+     * @param args The arguments for the speed exercise.
+     */
     public static void main(String[] args) {
         System.out.println(ANSI.ANSI_BLUE + "Speed Exercise\n");
 
@@ -17,6 +59,9 @@ public class SpeedExercise {
         testAlgorithmAvsAlgorithmB(TEST_AMOUNT);
     }
 
+    /**
+     * Tests the algorithms.
+     */
     private static void testAlgorithms() {
         System.out.println(ANSI.ANSI_YELLOW + "Performing algorithms test...");
         NumberRow numberRow = new NumberRow(AMOUNT, MAXIMUM);
@@ -49,6 +94,11 @@ public class SpeedExercise {
         printResults();
     }
 
+    /**
+     * Tests algorithm a versus algorithm b.
+     *
+     * @param testAmount The amount.
+     */
     private static void testAlgorithmAvsAlgorithmB(int testAmount) {
         System.out.println(ANSI.ANSI_YELLOW + "Performing algorithm a versus algorithm b test...");
         NumberRow[] numberRows = new NumberRow[testAmount];
@@ -75,14 +125,27 @@ public class SpeedExercise {
         }
     }
 
+    /**
+     * The current time in milliseconds.
+     *
+     * @return The current time in milliseconds.
+     */
     private static long time() {
         return System.currentTimeMillis();
     }
 
+    /**
+     * Generates a random number.
+     *
+     * @return A random number.
+     */
     private static int randomNumber() {
-        return (int) Math.floor((Math.random() * 200000));
+        return new Random().nextInt(MAXIMUM);
     }
 
+    /**
+     * Prints the results.
+     */
     public static void printResults() {
         String string;
 

@@ -30,7 +30,7 @@ public class TreeNode {
     private Boolean secondPop;
 
     /**
-     * A constructor.
+     * Tree node constructor.
      * Creates a new tree node.
      *
      * @param value The value of the tree node.
@@ -43,7 +43,7 @@ public class TreeNode {
     }
 
     /**
-     * Get the value of the tree node.
+     * Gets the value of the tree node.
      *
      * @return The value of the tree node.
      */
@@ -52,7 +52,7 @@ public class TreeNode {
     }
 
     /**
-     * Set the value of the tree node.
+     * Sets the value of the tree node.
      *
      * @param value The value of the tree node.
      */
@@ -61,7 +61,7 @@ public class TreeNode {
     }
 
     /**
-     * Get the left tree node.
+     * Gets the left tree node.
      *
      * @return The left tree node.
      */
@@ -70,7 +70,7 @@ public class TreeNode {
     }
 
     /**
-     * Set The right tree node.
+     * Sets The right tree node.
      *
      * @param left The left tree node.
      */
@@ -79,7 +79,7 @@ public class TreeNode {
     }
 
     /**
-     * Get the right position of a tree node.
+     * Gets the right position of a tree node.
      *
      * @return The right position of a tree node.
      */
@@ -88,7 +88,7 @@ public class TreeNode {
     }
 
     /**
-     * Set the right position of a tree node.
+     * Sets the right position of a tree node.
      *
      * @param right The right position of a tree node.
      */
@@ -97,7 +97,7 @@ public class TreeNode {
     }
 
     /**
-     * Get the second pop of a tree node.
+     * Gets the second pop of a tree node.
      *
      * @return The second pop of a tree node.
      */
@@ -106,7 +106,7 @@ public class TreeNode {
     }
 
     /**
-     * Set the second pop of a tree node.
+     * Sets the second pop of a tree node.
      *
      * @param secondPop The second pop of a tree node.
      */
