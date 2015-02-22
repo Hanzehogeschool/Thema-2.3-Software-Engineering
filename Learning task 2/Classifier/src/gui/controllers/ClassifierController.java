@@ -65,7 +65,7 @@ public class ClassifierController extends JPanel implements ActionListener {
             resultScreen();
         } else if (name.equals("Tree")) {
             try {
-                TreeGUI treeGUI = new TreeGUI();
+                TreeGUI treeGUI = new TreeGUI(classifierModel);
                 treeGUI.buildGUI();
             } catch (Exception exception) {
                 exception.printStackTrace();
