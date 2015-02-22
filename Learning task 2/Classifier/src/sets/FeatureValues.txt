@@ -1,0 +1,9 @@
+Features;8
+Turbo
+EnginePower
+SportBumper
+SportRing
+CruiseControl
+ABS
+AC
+Metallic
