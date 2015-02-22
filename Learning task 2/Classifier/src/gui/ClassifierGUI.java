@@ -23,11 +23,6 @@ public class ClassifierGUI extends JFrame {
         classifierController.welcomeScreen();
     }
 
-    public static void main(String[] args) throws Exception {
-        ClassifierGUI classifierGUI = new ClassifierGUI();
-        classifierGUI.buildGUI();
-    }
-
     public void buildGUI() {
         getContentPane();
         setLayout(new BorderLayout());
