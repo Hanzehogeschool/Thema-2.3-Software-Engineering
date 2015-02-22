@@ -1,0 +1,11 @@
+Categories;9
+Royal de luxe;100.0f
+Royal;90.0f
+De luxe;80.0f
+Comfort Plus;70.0f
+Comfort;60.0f
+Medium;50.0f
+Medium Low;50.0f
+Saver;30.0f
+Cheap saver;20.0f
+Super saver;10.0f

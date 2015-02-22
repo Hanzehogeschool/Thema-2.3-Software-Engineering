@@ -1,236 +1,146 @@
 package gui.views;
 
-import classifier.Item;
 import gui.models.ClassifierModel;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
-public class ClassifierView extends JPanel implements ActionListener {
+public class ClassifierView extends JPanel {
 
-    ClassifierModel classifierModel;
-    JPanel baseContainer; /* Main */
-    private JPanel northContainer;
-    private JPanel centerContainer;
-    private JPanel southContainer; /* Controller */
-    private ButtonGroup buttonGroup; /* Controller */
-    private ButtonModel buttonModel; /* Controller */
-    private Item item; /* Model */
-    private String result; /* Model */
+    private ClassifierModel classifierModel;
 
     public ClassifierView(ClassifierModel classifierModel) {
         this.classifierModel = classifierModel;
-        this.setLayout(new BorderLayout()); /* Main */
-        buildContainers();
-        firstScreen();
-        buttonGroup = null; /* Controller */
-        buttonModel = null; /* Controller */
-        item = classifierModel.createItem("car", classifierModel.getFeatureValues()); /* Controller */
-        result = ""; /* Controller */
     }
 
-    /* Controller */
-    @Override
-    public void actionPerformed(ActionEvent actionEvent) {
-        JButton jButton = (JButton) actionEvent.getSource();
-        String name = jButton.getName();
-        String[] featureValues = classifierModel.getFeatureValues();
+    public void welcomeScreen() {
+        setLayout(new GridLayout(2, 1));
 
-        if (buttonGroup != null) {
-            buttonModel = buttonGroup.getSelection();
-        }
-
-        if (!name.equals("Result") && !name.equals("Exit")) {
-            for (int i = 0; i < featureValues.length; i++) {
-                if (name.equals(featureValues[i])) {
-                    if (i != featureValues.length - 1) {
-                        addItem(i);
-                        optionScreen(featureValues[i], featureValues[i + 1]);
-                    } else {
-                        addItem(i);
-                        optionScreen(featureValues[featureValues.length - 1], "Result");
-                    }
-                }
-            }
-        } else if (name.equals("Result")) {
-            addItem(featureValues.length);
-            result = classifierModel.getDecisionTree().assignCategory(item); /* Model */
-            resultScreen();
-        } else {
-            exit();
-        }
-    }
-
-    /* Controller */
-    private void addItem(Integer i) {
-        if (buttonModel != null) {
-            item.setFeatureValue(classifierModel.getFeatureValues()[i - 1], buttonModel.getActionCommand());
-        }
-    }
-
-    private void buildContainers() {
-        baseContainer = new JPanel(new BorderLayout()); /* Main */
-        northContainer = new JPanel(new GridLayout(3, 1));
-        centerContainer = new JPanel(new GridLayout(1, 4));
-        southContainer = new JPanel(new GridLayout(3, 3)); /* Controller */
-
-        baseContainer.add(northContainer, BorderLayout.NORTH);
-        baseContainer.add(centerContainer, BorderLayout.CENTER);
-        baseContainer.add(southContainer, BorderLayout.SOUTH); /* Controller */
-        this.add(baseContainer, BorderLayout.CENTER); /* Main */
-    }
-
-    private void clearContainers() {
-        northContainer.removeAll();
-        centerContainer.removeAll();
-        southContainer.removeAll(); /* Controller */
-    }
-
-    private void rebuildContainers() {
-        northContainer.repaint();
-        northContainer.revalidate();
-        centerContainer.repaint();
-        centerContainer.revalidate();
-        southContainer.repaint(); /* Controller */
-        southContainer.revalidate(); /* Controller */
-    }
-
-    private void firstScreen() {
         JTextField welcomeTextField = new JTextField("Welcome to Classifier.");
-        welcomeTextField.setBorder(javax.swing.BorderFactory.createEmptyBorder());
+        welcomeTextField.setBorder(BorderFactory.createEmptyBorder(15, 0, 0, 0));
         welcomeTextField.setHorizontalAlignment(SwingConstants.CENTER);
         welcomeTextField.setEditable(false);
 
         JTextField startTextField = new JTextField("Click start to begin.");
-        startTextField.setBorder(javax.swing.BorderFactory.createEmptyBorder());
+        startTextField.setBorder(BorderFactory.createEmptyBorder(15, 0, 0, 0));
         startTextField.setHorizontalAlignment(SwingConstants.CENTER);
         startTextField.setEditable(false);
 
-        JButton startButton = new JButton("Start");
-        startButton.setName("Turbo");
-        startButton.addActionListener(this);
-
-        northContainer.add(new JLabel(""));
-        northContainer.add(welcomeTextField);
-        northContainer.add(new JLabel(""));
-
-        centerContainer.add(new JLabel(""));
-        centerContainer.add(startTextField);
-        centerContainer.add(new JLabel(""));
-        // centerContainer.add(new JLabel(""));
-
-        southContainer.add(new JLabel(""));
-        southContainer.add(new JLabel(""));
-        southContainer.add(new JLabel(""));
-
-        southContainer.add(new JLabel(""));
-        southContainer.add(startButton);
-        southContainer.add(new JLabel(""));
-
-        southContainer.add(new JLabel(""));
-        southContainer.add(new JLabel(""));
-        southContainer.add(new JLabel(""));
+        add(welcomeTextField);
+        add(startTextField);
     }
 
-    private void optionScreen(String name, String nextName) {
-        clearContainers();
+    public void featureScreen(String name) {
+        removeAll();
+
+        setLayout(new BorderLayout());
 
         JTextField questionTextField = new JTextField("Does the car has " + name + "?");
-        questionTextField.setBorder(javax.swing.BorderFactory.createEmptyBorder());
+        questionTextField.setBorder(BorderFactory.createEmptyBorder(15, 0, 0, 0));
         questionTextField.setHorizontalAlignment(SwingConstants.CENTER);
         questionTextField.setEditable(false);
 
-        JRadioButton yesButton = new JRadioButton("Yes");
-        yesButton.setHorizontalAlignment(SwingConstants.CENTER);
-        yesButton.setActionCommand("yes");
+        add(questionTextField);
 
-        JRadioButton noButton = new JRadioButton("No");
-        noButton.setHorizontalAlignment(SwingConstants.CENTER);
-        noButton.setActionCommand("no");
-        noButton.setSelected(true);
-
-        buttonGroup = new ButtonGroup();
-        buttonGroup.add(yesButton);
-        buttonGroup.add(noButton);
-
-        JButton nextButton = new JButton("Next");
-        nextButton.setName(nextName);
-        nextButton.addActionListener(this);
-
-        northContainer.add(new JLabel(""));
-        northContainer.add(questionTextField);
-        northContainer.add(new JLabel(""));
-
-        centerContainer.add(new JLabel(""));
-        centerContainer.add(yesButton);
-        centerContainer.add(noButton);
-        centerContainer.add(new JLabel(""));
-
-        southContainer.add(new JLabel(""));
-        southContainer.add(new JLabel(""));
-        southContainer.add(new JLabel(""));
-
-        southContainer.add(new JLabel(""));
-        southContainer.add(nextButton);
-        southContainer.add(new JLabel(""));
-
-        southContainer.add(new JLabel(""));
-        southContainer.add(new JLabel(""));
-        southContainer.add(new JLabel(""));
-
-        rebuildContainers();
+        repaint();
+        revalidate();
     }
 
-    private void resultScreen() {
-        clearContainers();
+    public void extraQuestionScreen(String name) {
+        removeAll();
 
-        JTextField titleTextField = new JTextField("Classifier result.");
-        titleTextField.setBorder(javax.swing.BorderFactory.createEmptyBorder());
-        titleTextField.setHorizontalAlignment(SwingConstants.CENTER);
-        titleTextField.setEditable(false);
+        setLayout(new BorderLayout());
 
-        JTextField resultTextField = new JTextField(result);
-        resultTextField.setBorder(javax.swing.BorderFactory.createEmptyBorder());
-        resultTextField.setHorizontalAlignment(SwingConstants.CENTER);
-        resultTextField.setEditable(false);
+        JTextField questionTextField = new JTextField("What is the " + name + " of the car?");
+        questionTextField.setBorder(BorderFactory.createEmptyBorder(15, 0, 0, 0));
+        questionTextField.setHorizontalAlignment(SwingConstants.CENTER);
+        questionTextField.setEditable(false);
 
-        JTextField priceTextField = new JTextField("\u20AC 50 ,-");
-        priceTextField.setBorder(javax.swing.BorderFactory.createEmptyBorder());
-        priceTextField.setHorizontalAlignment(SwingConstants.CENTER);
-        priceTextField.setEditable(false);
+        add(questionTextField);
 
-        JButton exitButton = new JButton("Exit");
-        exitButton.setName("Exit");
-        exitButton.addActionListener(this);
-
-        northContainer.add(new JLabel(""));
-        northContainer.add(titleTextField);
-        northContainer.add(new JLabel(""));
-
-        centerContainer.add(new JLabel(""));
-        centerContainer.add(resultTextField);
-        centerContainer.add(priceTextField);
-        centerContainer.add(new JLabel(""));
-
-        southContainer.add(new JLabel(""));
-        southContainer.add(new JLabel(""));
-        southContainer.add(new JLabel(""));
-
-        southContainer.add(new JLabel(""));
-        southContainer.add(exitButton);
-        southContainer.add(new JLabel(""));
-
-        southContainer.add(new JLabel(""));
-        southContainer.add(new JLabel(""));
-        southContainer.add(new JLabel(""));
-
-        rebuildContainers();
+        repaint();
+        revalidate();
     }
 
-    private void exit() {
-        System.exit(0);
+    public void resultScreen() {
+        removeAll();
+
+        setLayout(new BorderLayout());
+
+        JTextField resultTextfield = new JTextField("Classifier result:");
+        resultTextfield.setBorder(BorderFactory.createEmptyBorder(-15, 0, 0, 0));
+        resultTextfield.setHorizontalAlignment(SwingConstants.CENTER);
+        resultTextfield.setEditable(false);
+
+        JLabel categoryLabel = new JLabel("Category:");
+        categoryLabel.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
+        categoryLabel.setHorizontalAlignment(SwingConstants.CENTER);
+
+        JTextField carCategoryTextField = new JTextField(classifierModel.getCategory());
+        carCategoryTextField.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
+        carCategoryTextField.setHorizontalAlignment(SwingConstants.CENTER);
+        carCategoryTextField.setEditable(false);
+
+        JLabel priceLabel = new JLabel("Price:");
+        priceLabel.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
+        priceLabel.setHorizontalAlignment(SwingConstants.CENTER);
+
+        JTextField carPriceTextField = new JTextField("\u20AC " + classifierModel.getPrice() + " ,-");
+        carPriceTextField.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
+        carPriceTextField.setHorizontalAlignment(SwingConstants.CENTER);
+        carPriceTextField.setEditable(false);
+
+        JLabel colorLabel = new JLabel("Color:");
+        colorLabel.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
+        colorLabel.setHorizontalAlignment(SwingConstants.CENTER);
+
+        JTextField carColorTextField = new JTextField(classifierModel.getColor());
+        carColorTextField.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
+        carColorTextField.setHorizontalAlignment(SwingConstants.CENTER);
+        carColorTextField.setEditable(false);
+
+        JLabel colorWeight = new JLabel("Weight:");
+        colorWeight.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
+        colorWeight.setHorizontalAlignment(SwingConstants.CENTER);
+
+        JTextField carWeightTextField = new JTextField(classifierModel.getWeight() + " kg");
+        carWeightTextField.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
+        carWeightTextField.setHorizontalAlignment(SwingConstants.CENTER);
+        carWeightTextField.setEditable(false);
+
+        JPanel container = new JPanel(new GridLayout(2, 1));
+        JPanel resultContainer = new JPanel(new GridLayout(1, 1));
+        JPanel resultsContainer = new JPanel(new GridLayout(4, 4));
+
+        resultContainer.add(resultTextfield);
+
+        resultsContainer.add(new JLabel());
+        resultsContainer.add(categoryLabel);
+        resultsContainer.add(carCategoryTextField);
+        resultsContainer.add(new JLabel());
+
+        resultsContainer.add(new JLabel());
+        resultsContainer.add(priceLabel);
+        resultsContainer.add(carPriceTextField);
+        resultsContainer.add(new JLabel());
+
+        resultsContainer.add(new JLabel());
+        resultsContainer.add(colorLabel);
+        resultsContainer.add(carColorTextField);
+        resultsContainer.add(new JLabel());
+
+        resultsContainer.add(new JLabel());
+        resultsContainer.add(colorWeight);
+        resultsContainer.add(carWeightTextField);
+        resultsContainer.add(new JLabel());
+
+        container.add(resultContainer);
+        container.add(resultsContainer);
+
+        add(container);
+
+        repaint();
+        revalidate();
     }
 
 }

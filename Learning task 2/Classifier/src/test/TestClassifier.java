@@ -34,11 +34,11 @@ public class TestClassifier extends TestCase {
     public void testCategory() {
         DecisionTree dt = buildTree();
 
-        FeatureType yn = new FeatureType("YesNo", new String[] {
+        FeatureType yn = new FeatureType("YesNo", new String[]{
                 "yes", "no"
         });
 
-        Feature[] features = new Feature[] {
+        Feature[] features = new Feature[]{
                 new Feature("AC", "yes", yn),
                 new Feature("ABS", "yes", yn)
         };
@@ -100,11 +100,11 @@ public class TestClassifier extends TestCase {
     public void testThreeFeatures() {
         DecisionTree dt = buildThreeFeaturesTree();
 
-        FeatureType yn = new FeatureType("YesNo", new String[] {
+        FeatureType yn = new FeatureType("YesNo", new String[]{
                 "yes", "no"
         });
 
-        Feature[] features = new Feature[] {
+        Feature[] features = new Feature[]{
                 new Feature("AC", "yes", yn),
                 new Feature("ABS", "yes", yn),
                 new Feature("Turbo", "yes", yn)

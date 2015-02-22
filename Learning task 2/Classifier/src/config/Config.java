@@ -9,6 +9,7 @@ public class Config {
     public static final String TRAINING_SET = SETS_DIR + "TrainingSet.txt";
     public static final String TRAINING_SET_INCOMPLEET_FILE = SETS_DIR + "TrainingSetIncompleet.txt";
     public static final String TRAINING_SET_INCONSISTENT_FILE = SETS_DIR + "TrainingSetInconsistent.txt";
-    public static final String FEATURE_VALUES = SETS_DIR + "FeatureValues.txt";
+    public static final String FEATURES_FILE = SETS_DIR + "Features.txt";
+    public static final String CATEGORIES_FILE = SETS_DIR + "Categories.txt";
 
 }
