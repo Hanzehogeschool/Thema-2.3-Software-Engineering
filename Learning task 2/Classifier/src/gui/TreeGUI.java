@@ -1,9 +1,7 @@
 package gui;
 
 import config.Config;
-import gui.controllers.ClassifierController;
 import gui.models.ClassifierModel;
-import gui.views.ClassifierView;
 import gui.views.TreeView;
 
 import javax.swing.*;
