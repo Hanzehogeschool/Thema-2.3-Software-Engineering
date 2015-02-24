@@ -1,11 +1,12 @@
 package classifier;
 
+import javax.swing.*;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
-public class DecisionTree implements Classifier {
+public class DecisionTree extends JPanel implements Classifier {
 
     private Node root;
 
@@ -163,6 +164,10 @@ public class DecisionTree implements Classifier {
 
     public String toString() {
         return "Decision tree:\n" + root.toString();
+    }
+
+    public Node getRoot() {
+        return root;
     }
 
 }

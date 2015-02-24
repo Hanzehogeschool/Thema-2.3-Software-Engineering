@@ -7,7 +7,6 @@ import java.util.Map;
 public class Node {
 
     private String label;
-
     private Map<String, Node> arcs = new HashMap<String, Node>();
 
     public Node(String label) {
@@ -20,10 +19,6 @@ public class Node {
 
     public boolean isLeaf() {
         return arcs.size() == 0;
-    }
-
-    public String getLabel() {
-        return label;
     }
 
     public Node follow(String arcLabel) {
@@ -58,4 +53,13 @@ public class Node {
 
         return buffer.toString();
     }
+
+    public String getLabel() {
+        return label;
+    }
+
+    public Map<String, Node> getArcs() {
+        return arcs;
+    }
+
 }

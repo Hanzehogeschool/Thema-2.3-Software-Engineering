@@ -9,14 +9,48 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * Class representing a classifier controller.
+ *
+ * @author Nils Berlijn
+ * @author Tom Broeninkg
+ * @version 1.0
+ */
 public class ClassifierController extends JPanel implements ActionListener {
 
-    private ClassifierModel classifierModel;
-    private ClassifierView classifierView;
+    /**
+     * The classifier model.
+     */
+    ClassifierModel classifierModel;
+
+    /**
+     * The classifier view.
+     */
+    ClassifierView classifierView;
+
+    /**
+     * The button group.
+     */
     private ButtonGroup buttonGroup;
+
+    /**
+     * The button model.
+     */
     private ButtonModel buttonModel;
+
+    /**
+     * The answer text field.
+     */
     private JTextField answerTextField;
 
+    /**
+     * Classifier controller constructor.
+     * Creates a new classifier controller.
+     *
+     * @param classifierModel The classifier model.
+     * @param classifierView  The classifier view.
+     * @throws Exception
+     */
     public ClassifierController(ClassifierModel classifierModel, ClassifierView classifierView) throws Exception {
         this.classifierModel = classifierModel;
         this.classifierView = classifierView;
@@ -25,6 +59,11 @@ public class ClassifierController extends JPanel implements ActionListener {
         buttonModel = null;
     }
 
+    /**
+     * Performs an action.
+     *
+     * @param actionEvent The action event.
+     */
     @Override
     public void actionPerformed(ActionEvent actionEvent) {
         JButton jButton = (JButton) actionEvent.getSource();
@@ -40,33 +79,32 @@ public class ClassifierController extends JPanel implements ActionListener {
                 if (name.equals(features[i])) {
                     if (i != features.length - 1) {
                         classifierModel.addItem(buttonModel, i);
-                        classifierView.featureScreen(features[i]);
-                        featureScreen(features[i + 1]);
+                        classifierView.questionScreen(features[i]);
+                        questionScreen(features[i + 1]);
                     } else {
                         classifierModel.addItem(buttonModel, i);
-                        classifierView.featureScreen(features[features.length - 1]);
-                        featureScreen("Color");
+                        classifierView.questionScreen(features[features.length - 1]);
+                        questionScreen("Color");
                     }
                 }
             }
         } else if (name.equals("Color")) {
             classifierModel.addItem(buttonModel, features.length);
             classifierView.extraQuestionScreen("Color");
-            extraQuestionScreen("Weight", "Red", "color");
+            extraQuestionScreen("Weight", "White", "color");
         } else if (name.equals("Weight")) {
             classifierModel.setColor(answerTextField.getText());
             classifierView.extraQuestionScreen("Weight");
             extraQuestionScreen("Result", "1000", "kg");
         } else if (name.equals("Result")) {
-            classifierModel.setCategory(classifierModel.buildCategory());
-            classifierModel.setPrice(classifierModel.buildPrice());
+            classifierModel.setCategory(classifierModel.generateCategory());
+            classifierModel.setPrice(classifierModel.generatePrice());
             classifierModel.setWeight(Integer.parseInt(answerTextField.getText()));
             classifierView.resultScreen();
             resultScreen();
         } else if (name.equals("Tree")) {
             try {
-                TreeGUI treeGUI = new TreeGUI(classifierModel);
-                treeGUI.buildGUI();
+                new TreeGUI(classifierModel).initializeGUI();
             } catch (Exception exception) {
                 exception.printStackTrace();
             }
@@ -75,6 +113,9 @@ public class ClassifierController extends JPanel implements ActionListener {
         }
     }
 
+    /**
+     * Initializes the welcome screen.
+     */
     public void welcomeScreen() {
         JButton startButton = new JButton("Start");
         startButton.setName("Turbo");
@@ -83,7 +124,12 @@ public class ClassifierController extends JPanel implements ActionListener {
         add(startButton);
     }
 
-    public void featureScreen(String nextName) {
+    /**
+     * Initializes the question screen.
+     *
+     * @param nextName The next name.
+     */
+    public void questionScreen(String nextName) {
         removeAll();
 
         JRadioButton yesButton = new JRadioButton("Yes");
@@ -126,6 +172,13 @@ public class ClassifierController extends JPanel implements ActionListener {
         revalidate();
     }
 
+    /**
+     * Initializes the extra question screen.
+     *
+     * @param nextName     The next name.
+     * @param defaultValue The default value.
+     * @param curtly       The curtly.
+     */
     public void extraQuestionScreen(String nextName, String defaultValue, String curtly) {
         removeAll();
 
@@ -163,6 +216,9 @@ public class ClassifierController extends JPanel implements ActionListener {
         revalidate();
     }
 
+    /**
+     * Initializes the result screen.
+     */
     public void resultScreen() {
         removeAll();
 
@@ -181,6 +237,9 @@ public class ClassifierController extends JPanel implements ActionListener {
         revalidate();
     }
 
+    /**
+     * Closes the application.
+     */
     public void exit() {
         System.exit(0);
     }

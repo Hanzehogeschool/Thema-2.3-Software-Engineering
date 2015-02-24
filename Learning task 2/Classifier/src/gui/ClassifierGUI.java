@@ -9,21 +9,49 @@ import javax.swing.*;
 import java.awt.*;
 import java.io.File;
 
+/**
+ * Class representing a classifier gui.
+ *
+ * @author Nils Berlijn
+ * @author Tom Broeninkg
+ * @version 1.0
+ */
 public class ClassifierGUI extends JFrame {
 
+    /**
+     * The classifier model.
+     */
     ClassifierModel classifierModel;
+
+    /**
+     * The classifier view.
+     */
     ClassifierView classifierView;
+
+    /**
+     * The classifier controller.
+     */
     ClassifierController classifierController;
 
+    /**
+     * Classifier gui constructor.
+     * Creates a new classifier gui.
+     *
+     * @throws Exception
+     */
     public ClassifierGUI() throws Exception {
-        classifierModel = new ClassifierModel(new File(Config.CATEGORIES_FILE), new File(Config.FEATURES_FILE), new File(Config.TRAINING_SET));
+        classifierModel = new ClassifierModel(new File(Config.CATEGORIES_FILE), new File(Config.FEATURES_FILE), new File(Config.TRAINING_SET_FILE));
         classifierView = new ClassifierView(classifierModel);
         classifierController = new ClassifierController(classifierModel, classifierView);
+
         classifierView.welcomeScreen();
         classifierController.welcomeScreen();
     }
 
-    public void buildGUI() {
+    /**
+     * Initializes the classifier gui.
+     */
+    public void initializeGUI() {
         getContentPane();
         setLayout(new BorderLayout());
         pack();

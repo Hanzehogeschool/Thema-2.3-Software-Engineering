@@ -5,14 +5,33 @@ import gui.models.ClassifierModel;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * Class representing a classifier view.
+ *
+ * @author Nils Berlijn
+ * @author Tom Broeninkg
+ * @version 1.0
+ */
 public class ClassifierView extends JPanel {
 
-    private ClassifierModel classifierModel;
+    /**
+     * The classifier model.
+     */
+    ClassifierModel classifierModel;
 
+    /**
+     * Classifier view constructor.
+     * Creates a new classifier view.
+     *
+     * @param classifierModel The classifier model.
+     */
     public ClassifierView(ClassifierModel classifierModel) {
         this.classifierModel = classifierModel;
     }
 
+    /**
+     * Initializes the welcome screen.
+     */
     public void welcomeScreen() {
         setLayout(new GridLayout(2, 1));
 
@@ -30,7 +49,12 @@ public class ClassifierView extends JPanel {
         add(startTextField);
     }
 
-    public void featureScreen(String name) {
+    /**
+     * Initializes the question screen.
+     *
+     * @param name The name.
+     */
+    public void questionScreen(String name) {
         removeAll();
 
         setLayout(new BorderLayout());
@@ -46,6 +70,11 @@ public class ClassifierView extends JPanel {
         revalidate();
     }
 
+    /**
+     * Initializes the extra question screen.
+     *
+     * @param name The name.
+     */
     public void extraQuestionScreen(String name) {
         removeAll();
 
@@ -62,6 +91,9 @@ public class ClassifierView extends JPanel {
         revalidate();
     }
 
+    /**
+     * Initializes the result screen.
+     */
     public void resultScreen() {
         removeAll();
 

@@ -3,13 +3,31 @@ package test;
 import classifier.*;
 import junit.framework.TestCase;
 
+/**
+ * JUnit test to test classifier.
+ *
+ * @author Nils Berlijn
+ * @author Tom Broenink
+ * @version 1.0
+ */
 public class TestClassifier extends TestCase {
 
+    /**
+     * Test classifier constructor.
+     * Creates a new test classifier.
+     *
+     * @param arg0 The arguments.
+     */
     public TestClassifier(String arg0) {
         super(arg0);
     }
 
-    private DecisionTree buildTree() {
+    /**
+     * Generates the tree.
+     *
+     * @return The generated tree.
+     */
+    private DecisionTree generateTree() {
         Node root = new Node("AC");
 
         Node n1 = new Node("ABS");
@@ -31,8 +49,11 @@ public class TestClassifier extends TestCase {
         return new DecisionTree(root);
     }
 
+    /**
+     * Tests the category.
+     */
     public void testCategory() {
-        DecisionTree dt = buildTree();
+        DecisionTree dt = generateTree();
 
         FeatureType yn = new FeatureType("YesNo", new String[]{
                 "yes", "no"
@@ -57,7 +78,12 @@ public class TestClassifier extends TestCase {
         assertEquals("low", category);
     }
 
-    private DecisionTree buildThreeFeaturesTree() {
+    /**
+     * Generates the three features tree.
+     *
+     * @return The generated three features tree.
+     */
+    private DecisionTree generateThreeFeaturesTree() {
         Node root = new Node("AC");
 
         Node n1 = new Node("ABS");
@@ -97,8 +123,11 @@ public class TestClassifier extends TestCase {
         return new DecisionTree(root);
     }
 
+    /**
+     * Tests the three features.
+     */
     public void testThreeFeatures() {
-        DecisionTree dt = buildThreeFeaturesTree();
+        DecisionTree dt = generateThreeFeaturesTree();
 
         FeatureType yn = new FeatureType("YesNo", new String[]{
                 "yes", "no"
