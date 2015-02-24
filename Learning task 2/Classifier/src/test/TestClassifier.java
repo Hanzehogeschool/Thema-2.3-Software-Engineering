@@ -51,9 +51,11 @@ public class TestClassifier extends TestCase {
 
     /**
      * Tests the category.
+     *
+     * @see classifier.Classifier
      */
     public void testCategory() {
-        DecisionTree dt = generateTree();
+        DecisionTree decisionTree = generateTree();
 
         FeatureType yn = new FeatureType("YesNo", new String[]{
                 "yes", "no"
@@ -66,15 +68,15 @@ public class TestClassifier extends TestCase {
 
         Item item = new Item("car", features);
 
-        String category = dt.assignCategory(item);
+        String category = decisionTree.assignCategory(item);
         assertEquals("high", category);
 
         item.setFeatureValue("AC", "no");
-        category = dt.assignCategory(item);
+        category = decisionTree.assignCategory(item);
         assertEquals("medium", category);
 
         item.setFeatureValue("ABS", "no");
-        category = dt.assignCategory(item);
+        category = decisionTree.assignCategory(item);
         assertEquals("low", category);
     }
 
@@ -125,35 +127,37 @@ public class TestClassifier extends TestCase {
 
     /**
      * Tests the three features.
+     *
+     * @see classifier.Classifier
      */
     public void testThreeFeatures() {
-        DecisionTree dt = generateThreeFeaturesTree();
+        DecisionTree decisionTree = generateThreeFeaturesTree();
 
-        FeatureType yn = new FeatureType("YesNo", new String[]{
+        FeatureType yesNo = new FeatureType("YesNo", new String[]{
                 "yes", "no"
         });
 
         Feature[] features = new Feature[]{
-                new Feature("AC", "yes", yn),
-                new Feature("ABS", "yes", yn),
-                new Feature("Turbo", "yes", yn)
+                new Feature("AC", "yes", yesNo),
+                new Feature("ABS", "yes", yesNo),
+                new Feature("Turbo", "yes", yesNo)
         };
 
         Item item = new Item("car", features);
 
-        String category = dt.assignCategory(item);
+        String category = decisionTree.assignCategory(item);
         assertEquals("high", category);
 
         item.setFeatureValue("Turbo", "no");
-        category = dt.assignCategory(item);
+        category = decisionTree.assignCategory(item);
         assertEquals("high", category);
 
         item.setFeatureValue("AC", "no");
-        category = dt.assignCategory(item);
+        category = decisionTree.assignCategory(item);
         assertEquals("medium", category);
 
         item.setFeatureValue("ABS", "no");
-        category = dt.assignCategory(item);
+        category = decisionTree.assignCategory(item);
         assertEquals("low", category);
     }
 
