@@ -106,7 +106,7 @@ public class TreeOrders {
     }
 
     /**
-     * The string representation the tree orders.
+     * The string representation of the tree orders.
      *
      * @return The string.
      */

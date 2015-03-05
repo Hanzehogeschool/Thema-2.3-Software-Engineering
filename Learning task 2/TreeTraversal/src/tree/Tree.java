@@ -68,7 +68,6 @@ public class Tree {
     public void generateTree() {
         treeNode = new TreeNode(treeRootValue);
         string += ANSI.ANSI_MAGENTA + "Added a new root (" + treeNode.getValue() + ")\n";
-
         treeValues = generateTreeValues(new ArrayList<Integer>(treeSize));
         generateTreeNodes();
     }
@@ -132,7 +131,7 @@ public class Tree {
     }
 
     /**
-     * The string representation the tree.
+     * The string representation of the tree.
      *
      * @return The string.
      */
