@@ -52,8 +52,7 @@ public class TestTicTacToe {
      * @see ttt.TicTacToe#isAWin(int)
      */
     @Test
-    public void testIsAWin()
-    {
+    public void testIsAWin() {
         for (int i = 0; i < 3; i++) {
             ticTacToe.setComputerPlays();
             ticTacToe.playMove(i);
