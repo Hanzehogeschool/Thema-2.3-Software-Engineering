@@ -131,7 +131,7 @@ public class Tree {
     }
 
     /**
-     * The string representation the tree.
+     * The string representation of the tree.
      *
      * @return The string.
      */
