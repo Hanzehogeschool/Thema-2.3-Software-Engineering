@@ -6,7 +6,7 @@ import java.util.Stack;
  * Class representing tree orders.
  *
  * @author Nils Berlijn
- * @author Tom Broeninkg
+ * @author Tom Broenink
  * @version 1.0
  */
 public class TreeOrders {

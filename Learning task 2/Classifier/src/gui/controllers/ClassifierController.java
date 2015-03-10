@@ -13,7 +13,7 @@ import java.awt.event.ActionListener;
  * Class representing a classifier controller.
  *
  * @author Nils Berlijn
- * @author Tom Broeninkg
+ * @author Tom Broenink
  * @version 1.0
  */
 public class ClassifierController extends JPanel implements ActionListener {

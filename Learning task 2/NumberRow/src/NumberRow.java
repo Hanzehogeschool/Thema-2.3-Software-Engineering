@@ -6,7 +6,7 @@ import java.util.Random;
  * Class representing a number row.
  *
  * @author Nils Berlijn
- * @author Tom Broeninkg
+ * @author Tom Broenink
  * @version 1.0
  */
 public class NumberRow {

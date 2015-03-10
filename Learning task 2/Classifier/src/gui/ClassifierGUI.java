@@ -13,7 +13,7 @@ import java.io.File;
  * Class representing a classifier gui.
  *
  * @author Nils Berlijn
- * @author Tom Broeninkg
+ * @author Tom Broenink
  * @version 1.0
  */
 public class ClassifierGUI extends JFrame {

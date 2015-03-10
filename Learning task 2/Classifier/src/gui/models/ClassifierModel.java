@@ -16,7 +16,7 @@ import java.util.Map;
  * Class representing a classifier model.
  *
  * @author Nils Berlijn
- * @author Tom Broeninkg
+ * @author Tom Broenink
  * @version 1.0
  */
 public class ClassifierModel {

@@ -7,7 +7,7 @@ import java.util.Enumeration;
  * Class representing a tree builder.
  *
  * @author Nils Berlijn
- * @author Tom Broeninkg
+ * @author Tom Broenink
  * @version 1.0
  */
 public class TreeBuilder {

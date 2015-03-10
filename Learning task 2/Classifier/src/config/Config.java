@@ -4,7 +4,7 @@ package config;
  * Class representing a config.
  *
  * @author Nils Berlijn
- * @author Tom Broeninkg
+ * @author Tom Broenink
  * @version 1.0
  */
 public class Config {

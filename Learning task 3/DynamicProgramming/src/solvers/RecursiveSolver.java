@@ -4,7 +4,7 @@ package solvers;
  * Class representing a recursive solver.
  *
  * @author Nils Berlijn
- * @author Tom Broeninkg
+ * @author Tom Broenink
  * @version 1.0
  */
 public class RecursiveSolver implements Solver {

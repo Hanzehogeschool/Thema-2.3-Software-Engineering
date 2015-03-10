@@ -9,7 +9,7 @@ import java.awt.*;
  * Class representing a classifier view.
  *
  * @author Nils Berlijn
- * @author Tom Broeninkg
+ * @author Tom Broenink
  * @version 1.0
  */
 public class ClassifierView extends JPanel {

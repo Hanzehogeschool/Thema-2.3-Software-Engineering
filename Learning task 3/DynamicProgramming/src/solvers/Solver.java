@@ -4,7 +4,7 @@ package solvers;
  * Class representing a solver.
  *
  * @author Nils Berlijn
- * @author Tom Broeninkg
+ * @author Tom Broenink
  * @version 1.0
  */
 public interface Solver {

@@ -4,7 +4,7 @@ package solvers;
  * Class representing a bottom up solver.
  *
  * @author Nils Berlijn
- * @author Tom Broeninkg
+ * @author Tom Broenink
  * @version 1.0
  */
 public class BottomUpSolver implements Solver {

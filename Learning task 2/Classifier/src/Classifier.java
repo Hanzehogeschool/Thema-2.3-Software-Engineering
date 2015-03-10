@@ -4,7 +4,7 @@ import gui.ClassifierGUI;
  * Class representing a classifier.
  *
  * @author Nils Berlijn
- * @author Tom Broeninkg
+ * @author Tom Broenink
  * @version 1.0
  */
 public class Classifier {

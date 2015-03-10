@@ -12,7 +12,7 @@ import java.util.Map;
  * Class representing a tree view.
  *
  * @author Nils Berlijn
- * @author Tom Broeninkg
+ * @author Tom Broenink
  * @version 1.0
  */
 public class TreeView extends JPanel {
