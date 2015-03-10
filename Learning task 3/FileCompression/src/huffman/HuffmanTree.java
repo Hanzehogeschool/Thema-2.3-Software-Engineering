@@ -35,8 +35,7 @@ public class HuffmanTree {
         String v = "";
         HuffNode par = current.parent;
 
-        while (par != null)
-        {
+        while (par != null) {
             if (par.left == current) {
                 v = "0" + v;
             } else {
