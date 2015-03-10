@@ -1,11 +1,8 @@
 package multiformat;
 
-/**
- * A generic numbering base
- */
 public abstract class Base {
 
-    static final int MAX_PRECISION = 10;  // max # of number after point
+    static final int MAX_PRECISION = 10;
     double EPSILON;
     private String name;
     private int base;
@@ -26,12 +23,6 @@ public abstract class Base {
         return base;
     }
 
-    /**
-     * Takes the input string and calculates the double value, using the current numberbase.
-     *
-     * @param number A String representation like "101.101" or "1A3.E56".
-     * @return The decimal double value of the number.
-     */
     double parse(String number) {
         double sign = 1.0;
 
@@ -63,13 +54,6 @@ public abstract class Base {
         return result * sign;
     }
 
-    /**
-     * Translate the number to the string representation in the current base.
-     * I.e. 9 results in "1001".
-     *
-     * @param number The double value.
-     * @return The string representation.
-     */
     String toString(double number) {
         if (number == 0.0) return "0";
 

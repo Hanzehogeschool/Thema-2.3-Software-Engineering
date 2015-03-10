@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class Command {
+
     Calculator calc = new Calculator();
     BufferedReader prevReader = null;
     BufferedReader lineReader = new BufferedReader(new InputStreamReader(System.in));

@@ -11,7 +11,6 @@ public class OctalBase extends Base {
 
     /**
      * Octal base constructor.
-     * Parameter-free constructor.
      * Creates a new octal base.
      */
     public OctalBase() {

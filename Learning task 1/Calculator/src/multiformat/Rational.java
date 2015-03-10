@@ -44,7 +44,6 @@ public class Rational {
 
     /**
      * Rational constructor.
-     * Parameter-free Constructor.
      * Creates a new rational.
      */
     public Rational() {

@@ -1,8 +1,5 @@
 package multiformat;
 
-/**
- * Bynary numbering base.
- */
 public class BinaryBase extends Base {
 
     public BinaryBase() {
