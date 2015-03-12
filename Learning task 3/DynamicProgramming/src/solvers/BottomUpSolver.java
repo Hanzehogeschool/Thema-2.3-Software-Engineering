@@ -45,8 +45,11 @@ public class BottomUpSolver implements Solver {
         }
 
         if (sum <= numbersArray[0].length) {
-            for (int i = 0; i < numbersArray.length; i++)
-                if (numbersArray[i][sum - 1] != 0) return true;
+            for (int i = 0; i < numbersArray.length; i++) {
+                if (numbersArray[i][sum - 1] != 0) {
+                    return true;
+                }
+            }
         }
 
         return false;
