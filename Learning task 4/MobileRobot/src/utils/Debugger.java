@@ -6,7 +6,7 @@ public class Debugger {
 
     public static void print(String className, String methodName, String description) {
         if (debug) {
-            System.out.println(ANSI.ANSI_CYAN + className + " > " + ANSI.ANSI_BLUE + methodName + ANSI.ANSI_WHITE + " > " + description);
+            System.out.println(ANSI.ANSI_CYAN + className + " > " + ANSI.ANSI_BLUE + methodName + " > " + ANSI.ANSI_WHITE + description);
         }
     }
 
