@@ -17,9 +17,9 @@ public class Environment {
     private final ArrayList<ActionListener> actionListenerList;
 
     public Environment(OccupancyMap map) {
-        this.obstacles = new ArrayList<Obstacle>();
+        this.obstacles = new ArrayList<>();
         robot = new MobileRobot("R1", 90, 200, 270, this, map);
-        actionListenerList = new ArrayList<ActionListener>();
+        actionListenerList = new ArrayList<>();
     }
 
     public boolean loadMap(File mapFile) {

@@ -29,7 +29,7 @@ public class Laser extends Device {
         this.detect = false;
         this.scan = false;
 
-        this.scanMeasurements = new ArrayList<Measurement>();
+        this.scanMeasurements = new ArrayList<>();
 
         backgroundColor = Color.ORANGE;
 

@@ -9,7 +9,6 @@ import gui.views.SimulationView;
 import models.environment.Environment;
 import models.virtualmap.OccupancyMap;
 import utils.ANSI;
-import utils.Debugger;
 
 import javax.swing.*;
 import java.awt.*;
@@ -18,7 +17,6 @@ public class MainFrame extends JFrame {
 
     public static void main(String[] args) {
         System.out.println(ANSI.ANSI_BLUE + "Mobile Robot");
-        Debugger.debug = true;
         MainFrame runner = new MainFrame();
         runner.init();
     }

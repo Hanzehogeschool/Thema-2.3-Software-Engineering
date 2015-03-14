@@ -32,7 +32,7 @@ public class OccupancyMap {
             }
         }
 
-        this.actionListenerList = new ArrayList<ActionListener>();
+        this.actionListenerList = new ArrayList<>();
     }
 
     public void drawLaserScan(double position[], double measures[]) {
@@ -58,39 +58,6 @@ public class OccupancyMap {
                 drawLaserBeam(rx, ry, fx, fy, true);
             } else {
                 drawLaserBeam(rx, ry, fx, fy, false);
-            }
-        }
-
-        Position robotPos = environment.getRobot().getPlatform().getRobotPosition();
-
-        int robotX = (int) robotPos.getX() / CELL_DIMENSION;
-        int robotY = (int) robotPos.getY() / CELL_DIMENSION;
-        this.grid[robotX][robotY] = ROBOT;
-
-        this.processEvent(new ActionEvent(this, ActionEvent.ACTION_PERFORMED, null));
-    }
-
-    public void drawSonarScan(double position[], double measures[]) {
-        double rx = Math.round(position[0] + 20.0 * Math.cos(Math.toRadians(position[2])));
-        double ry = Math.round(position[1] + 20.0 * Math.sin(Math.toRadians(position[2])));
-        int dir = (int) Math.round(position[2]);
-
-        for (int i = 0; i < 360; i++) {
-            int d = i - dir;
-
-            while (d < 0) {
-                d += 360;
-            }
-
-            while (d >= 360) {
-                d -= 360;
-            }
-
-            double fx = Math.round(rx + measures[d] * Math.cos(Math.toRadians(i)));
-            double fy = Math.round(ry + measures[d] * Math.sin(Math.toRadians(i)));
-
-            if (measures[d] < 100) {
-                drawSonarPulse(fx, fy, true);
             }
         }
 
@@ -190,19 +157,6 @@ public class OccupancyMap {
                     }
                 }
             }
-        }
-    }
-
-    private void drawSonarPulse(double x, double y, boolean obstacle) {
-        int xi = (int) Math.ceil(x / CELL_DIMENSION);
-        int yj = (int) Math.ceil(y / CELL_DIMENSION);
-
-        if (xi < 0 || yj < 0 || xi >= MAP_WIDTH / CELL_DIMENSION || yj >= MAP_HEIGHT / CELL_DIMENSION) {
-            return;
-        }
-
-        if (obstacle) {
-            grid[xi][yj] = OBSTACLE;
         }
     }
 

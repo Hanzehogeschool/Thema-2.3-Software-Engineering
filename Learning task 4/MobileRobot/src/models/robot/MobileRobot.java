@@ -3,7 +3,6 @@ package models.robot;
 import models.device.Device;
 import models.device.Laser;
 import models.device.Platform;
-import models.device.Sonar;
 import models.environment.Environment;
 import models.environment.Position;
 import models.virtualmap.OccupancyMap;
@@ -24,13 +23,13 @@ public class MobileRobot {
     private final MobileRobotAI intelligence;
     private PrintWriter output;
     private ThreadPoolExecutor executor;
+
     public MobileRobot(String name, double x, double y, double t, Environment environment, OccupancyMap map) {
-        this.sensors = new ArrayList<Device>();
+        this.sensors = new ArrayList<>();
         this.name = name;
         this.position = new Position(x, y, Math.toRadians(t));
         this.platform = new Platform("P1", this, environment);
         this.sensors.add(new Laser("L1", this, new Position(20.0, 0.0, 0.0), environment));
-        this.sensors.add(new Sonar("S1", this, new Position(10.0, 0.0, 0.0), environment));
         this.intelligence = new MobileRobotAI(this, map);
     }
 

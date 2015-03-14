@@ -9,11 +9,11 @@ public class Obstacle {
     private static final Color STANDARD_FOREGROUND_COLOR = Color.ORANGE;
     private static final Color STANDARD_BACKGROUND_COLOR = Color.BLUE;
     private static final Color STANDARD_OPAQUE_FOREGROUND_COLOR = Color.DARK_GRAY;
+    private static final Color STANDARD_OPAQUE_BACKGROUND_COLOR = Color.MAGENTA;
 
     protected final Polygon polygon;
 
     protected boolean opaque;
-    private Color STANDARD_OPAQUE_BACKGROUND_COLOR = Color.MAGENTA;
     private String name;
     private Color foregroundColor;
     private Color backgroundColor;
@@ -98,10 +98,6 @@ public class Obstacle {
 
     public Color getOpaqueBackgroundColor() {
         return opaqueBackgroundColor;
-    }
-
-    public void setOpaqueBackgroundColor(Color newcolor) {
-        this.opaqueBackgroundColor = newcolor;
     }
 
     public Color getOpaqueForegroundColor() {

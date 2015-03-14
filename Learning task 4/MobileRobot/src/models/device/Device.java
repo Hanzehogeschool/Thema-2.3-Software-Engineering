@@ -37,7 +37,7 @@ public abstract class Device implements Runnable {
         this.running = true;
         this.executingCommand = false;
 
-        this.commands = new ArrayList<String>();
+        this.commands = new ArrayList<>();
         this.output = null;
         robot.readPosition(this.robotPosition);
     }
