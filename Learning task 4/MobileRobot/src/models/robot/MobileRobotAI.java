@@ -1,8 +1,8 @@
 package models.robot;
 
+import models.virtualmap.OccupancyMap;
 import utils.ANSI;
 import utils.Debugger;
-import models.virtualmap.OccupancyMap;
 
 import java.io.*;
 import java.util.Arrays;
@@ -69,36 +69,30 @@ public class MobileRobotAI implements Runnable {
      * The mobile robot.
      */
     private final MobileRobot mobileRobot;
-
-    /**
-     * The running.
-     */
-    private boolean running;
-
-    /* Readers and writers. */
-
     /**
      * The pipe in.
      */
     PipedInputStream pipeIn;
 
+    /* Readers and writers. */
     /**
      * The input.
      */
     BufferedReader input;
-
     /**
      * The output.
      */
     PrintWriter output;
-
     /**
      * The result.
      */
     String result = "";
+    /**
+     * The running.
+     */
+    private boolean running;
 
     /* Positions and measures. */
-
     /**
      * The position.
      */
@@ -130,7 +124,7 @@ public class MobileRobotAI implements Runnable {
      * Mobile robot ai constructor.
      * Creates a new mobile robot ai.
      *
-     * @param mobileRobot The mobile robot.
+     * @param mobileRobot  The mobile robot.
      * @param occupancyMap The occupancy map.
      */
     public MobileRobotAI(MobileRobot mobileRobot, OccupancyMap occupancyMap) {
@@ -244,20 +238,20 @@ public class MobileRobotAI implements Runnable {
             // If the right wall is found and the known map equals a empty from the occupancy map, increase the steps to take.
             if (rightWallFound && knownMap[xCoordinate][yCoordinate] == occupancyMap.getEmpty()) {
                 stepsToTake++;
-                // Else if the right wall is found and the known map equals a unknown from the occupancy map, move forward and set the reached end to true.
+            // Else if the right wall is found and the known map equals a unknown from the occupancy map, move forward and set the reached end to true.
             } else if (rightWallFound && knownMap[xCoordinate][yCoordinate] == occupancyMap.getUnknown()) {
                 moveForward(stepsToTake - 2);
                 reachedEnd = true;
-                // Else if the right wall is found and the known map equals a obstacle from the occupancy map, move forward, rotate to the left and set the reached end to true.
+            // Else if the right wall is found and the known map equals a obstacle from the occupancy map, move forward, rotate to the left and set the reached end to true.
             } else if (rightWallFound && knownMap[xCoordinate][yCoordinate] == occupancyMap.getObstacle()) {
                 moveForward(stepsToTake - 3);
                 rotate("Left");
                 reachedEnd = true;
-                // Else if the right wall is not found and the known map equals a unknown from the occupancy map, move forward and set the reached end to true.
+            // Else if the right wall is not found and the known map equals a unknown from the occupancy map, move forward and set the reached end to true.
             } else if (!rightWallFound && knownMap[xCoordinate][yCoordinate] == occupancyMap.getUnknown()) {
                 moveForward(stepsToTake - 2);
                 reachedEnd = true;
-                // Else if the right wall is not found and the known map equals a empty from the occupancy map, corner right and set the reached end to true.
+            // Else if the right wall is not found and the known map equals a empty from the occupancy map, corner right and set the reached end to true.
             } else if (!rightWallFound && knownMap[xCoordinate][yCoordinate] == occupancyMap.getEmpty()) {
                 cornerRight(stepsToTake);
                 reachedEnd = true;
@@ -344,7 +338,7 @@ public class MobileRobotAI implements Runnable {
             if (knownMap[xCoordinate][yCoordinate] == occupancyMap.getUnknown()) {
                 reachedEnd = true;
                 rightWallFound = false;
-                // Else If the known map equals an obstacle from the occupancy map, set the reached end to true and the right wall found to true.
+            // Else If the known map equals an obstacle from the occupancy map, set the reached end to true and the right wall found to true.
             } else if (knownMap[xCoordinate][yCoordinate] == occupancyMap.getObstacle()) {
                 reachedEnd = true;
                 rightWallFound = true;
@@ -531,7 +525,7 @@ public class MobileRobotAI implements Runnable {
     }
 
     /**
-     *  Determines the closest direction.
+     * Determines the closest direction.
      *
      * @param numberToRound The number to round.
      * @return The determined closest direction.
@@ -636,7 +630,8 @@ public class MobileRobotAI implements Runnable {
                 } catch (IllegalArgumentException illegalArgumentException) {
                     continueSearch = false;
                 }
-            } while ((currentXCoordinate != startXCoordinate || currentYCoordinate != startYCoordinate) && continueSearch);
+            }
+            while ((currentXCoordinate != startXCoordinate || currentYCoordinate != startYCoordinate) && continueSearch);
 
             // If the search continues is true, set the map scanned to true.
             if (continueSearch) {
@@ -651,8 +646,8 @@ public class MobileRobotAI implements Runnable {
     /**
      * Searches the adjacent wall.
      *
-     * @param xCoordinate The x coordinate.
-     * @param yCoordinate The y coordinate.
+     * @param xCoordinate         The x coordinate.
+     * @param yCoordinate         The y coordinate.
      * @param previousXCoordinate The previous x coordinate.
      * @param previousYCoordinate The previous y coordinate.
      * @return The adjacent wall.
@@ -675,7 +670,7 @@ public class MobileRobotAI implements Runnable {
         } else if (knownMap[xCoordinate + 1][yCoordinate] == occupancyMap.getObstacle() && (xCoordinate + 1 != previousXCoordinate || yCoordinate != previousYCoordinate)) {
             adjacentWall[0] = xCoordinate + 1;
             adjacentWall[1] = yCoordinate;
-        // If the y coordinate is greater than 0 and the known map equals the obstacle from the occupancy map and the x coordinate not equals the previous x coordinate or the y coordinate not equals the previous y coordinate, set the adjacent wall x to the x coordinate and the adjacent wall y to the y coordinate.
+        // Else if the y coordinate is greater than 0 and the known map equals the obstacle from the occupancy map and the x coordinate not equals the previous x coordinate or the y coordinate not equals the previous y coordinate, set the adjacent wall x to the x coordinate and the adjacent wall y to the y coordinate.
         } else if (yCoordinate > 0 && knownMap[xCoordinate][yCoordinate - 1] == occupancyMap.getObstacle() && (xCoordinate != previousXCoordinate || yCoordinate - 1 != previousYCoordinate)) {
             adjacentWall[0] = xCoordinate;
             adjacentWall[1] = yCoordinate - 1;
@@ -697,7 +692,7 @@ public class MobileRobotAI implements Runnable {
     /**
      * Parses the position.
      *
-     * @param value The value.
+     * @param value    The value.
      * @param position The position.
      */
     private void parsePosition(String value, double position[]) {
@@ -732,7 +727,7 @@ public class MobileRobotAI implements Runnable {
     /**
      * Parse the measures.
      *
-     * @param value The value.
+     * @param value    The value.
      * @param measures The position.
      */
     private void parseMeasures(String value, double measures[]) {

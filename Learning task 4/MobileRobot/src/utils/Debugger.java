@@ -17,8 +17,8 @@ public class Debugger {
     /**
      * Prints.
      *
-     * @param className The class name.
-     * @param methodName The method name.
+     * @param className   The class name.
+     * @param methodName  The method name.
      * @param description The description.
      */
     public static void print(String className, String methodName, String description) {
