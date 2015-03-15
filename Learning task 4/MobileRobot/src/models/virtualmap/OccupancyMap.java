@@ -9,10 +9,10 @@ import java.util.ArrayList;
 
 public class OccupancyMap {
 
-    public static final char UNKNOWN = 'n';
-    public static final char EMPTY = 'e';
-    public static final char OBSTACLE = 'o';
-    public static final char ROBOT = 'r';
+    private static final char UNKNOWN = 'n';
+    private static final char EMPTY = 'e';
+    private static final char OBSTACLE = 'o';
+    private static final char ROBOT = 'r';
 
     private final int CELL_DIMENSION = 10;
     private final int MAP_WIDTH = 510;

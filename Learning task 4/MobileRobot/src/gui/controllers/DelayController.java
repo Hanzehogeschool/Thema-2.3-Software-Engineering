@@ -11,13 +11,11 @@ import java.awt.event.ActionListener;
 public class DelayController extends JMenu implements ActionListener {
 
     private final Environment environment;
-
     private JTextField txtDelay;
     private JButton btnSet;
     private JButton btnIncrease;
     private JButton btnDecrease;
     private JLabel lblStepSize;
-
     private int delay;
 
     public DelayController(Environment environment) {

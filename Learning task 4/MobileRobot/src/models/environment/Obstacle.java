@@ -10,14 +10,11 @@ public class Obstacle {
     private static final Color STANDARD_BACKGROUND_COLOR = Color.BLUE;
     private static final Color STANDARD_OPAQUE_FOREGROUND_COLOR = Color.DARK_GRAY;
     private static final Color STANDARD_OPAQUE_BACKGROUND_COLOR = Color.MAGENTA;
-
     protected final Polygon polygon;
-
     protected boolean opaque;
     private String name;
     private Color foregroundColor;
     private Color backgroundColor;
-
     private Color opaqueBackgroundColor;
     private Color opaqueForegroundColor;
 

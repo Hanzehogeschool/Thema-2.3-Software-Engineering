@@ -10,7 +10,6 @@ import java.io.File;
 public class OccupancyMapController extends JMenu implements ActionListener {
 
     private final Environment environment;
-
     private JMenuItem menuFileOpenMap;
     private JMenuItem menuFileExit;
 

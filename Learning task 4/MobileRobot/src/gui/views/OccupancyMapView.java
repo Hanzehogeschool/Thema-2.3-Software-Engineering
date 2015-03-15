@@ -14,11 +14,9 @@ public class OccupancyMapView extends JPanel implements ActionListener {
     private static final char EMPTY = 'e';
     private static final char OBSTACLE = 'o';
     private static final char ROBOT = 'r';
-
     private static final Color MAP_UNKNOWN_COLOR = Color.YELLOW;
     private static final Color MAP_OBSTACLE_COLOR = Color.BLUE;
     private static final Color MAP_ROBOT_COLOR = Color.BLACK;
-
     private static final Color GRID_COLOR = Color.LIGHT_GRAY;
     private final OccupancyMap model;
     private int width;

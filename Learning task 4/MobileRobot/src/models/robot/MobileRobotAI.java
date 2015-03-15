@@ -8,9 +8,6 @@ import java.io.*;
 import java.util.Arrays;
 import java.util.StringTokenizer;
 
-// TODO: Write Javadoc for all classes.
-// TODO: Change occupancyMap UNKNOWN, EMPTY and OBSTACLE into their getters.
-
 /**
  * Class representing a mobile robot ai.
  *
@@ -191,7 +188,7 @@ public class MobileRobotAI implements Runnable {
                     mobileRobot.quit();
                 }
             } catch (IOException ioException) {
-                System.err.println("MobileRobotAI: execution stopped.");
+                System.err.println("MobileRobotAI: Execution stopped.");
                 running = false;
             }
         }
@@ -213,18 +210,18 @@ public class MobileRobotAI implements Runnable {
         scanArea();
 
         // The coordinates of the mobile robot.
-        int xCoordinate = (int) this.position[0] / occupancyMap.getCellDimension();
-        int yCoordinate = (int) this.position[1] / occupancyMap.getCellDimension();
+        int xCoordinate = (int) position[0] / occupancyMap.getCellDimension();
+        int yCoordinate = (int) position[1] / occupancyMap.getCellDimension();
 
         // Debugging.
-        Debugger.print("MobileRobotAI", "process", "x coordinate: " + xCoordinate);
-        Debugger.print("MobileRobotAI", "process", "y coordinate: " + yCoordinate);
+        Debugger.print("MobileRobotAI", "process", "xCoordinate: " + xCoordinate);
+        Debugger.print("MobileRobotAI", "process", "yCoordinate: " + yCoordinate);
 
         // Search directions.
         int[] searchDirections = determineSearchDirection(FORWARD);
 
         // Debugging..
-        Debugger.print("MobileRobotAI", "process", "searchDirections returns x direction, y direction > " + Arrays.toString(searchDirections));
+        Debugger.print("MobileRobotAI", "process", "searchDirections: " + Arrays.toString(searchDirections));
 
         // Search direction coordinates.
         int xSearchDirection = searchDirections[0];
@@ -234,7 +231,7 @@ public class MobileRobotAI implements Runnable {
         boolean reachedEnd = false;
 
         // The known map.
-        char[][] knownMap = this.occupancyMap.getGrid();
+        char[][] knownMap = occupancyMap.getGrid();
 
         // Amount of steps to take.
         int stepsToTake = 0;
@@ -245,23 +242,23 @@ public class MobileRobotAI implements Runnable {
             boolean rightWallFound = searchWallToTheRight(xCoordinate, yCoordinate);
 
             // If the right wall is found and the known map equals a empty from the occupancy map, increase the steps to take.
-            if (rightWallFound && knownMap[xCoordinate][yCoordinate] == OccupancyMap.EMPTY) {
+            if (rightWallFound && knownMap[xCoordinate][yCoordinate] == occupancyMap.getEmpty()) {
                 stepsToTake++;
-            // Else if the right wall is found and the known map equals a unknown from the occupancy map, move forward and set the reached end to true.
-            } else if (rightWallFound && knownMap[xCoordinate][yCoordinate] == OccupancyMap.UNKNOWN) {
+                // Else if the right wall is found and the known map equals a unknown from the occupancy map, move forward and set the reached end to true.
+            } else if (rightWallFound && knownMap[xCoordinate][yCoordinate] == occupancyMap.getUnknown()) {
                 moveForward(stepsToTake - 2);
                 reachedEnd = true;
-            // Else if the right wall is found and the known map equals a obstacle from the occupancy map, move forward, rotate to the left and set the reached end to true.
-            } else if (rightWallFound && knownMap[xCoordinate][yCoordinate] == OccupancyMap.OBSTACLE) {
+                // Else if the right wall is found and the known map equals a obstacle from the occupancy map, move forward, rotate to the left and set the reached end to true.
+            } else if (rightWallFound && knownMap[xCoordinate][yCoordinate] == occupancyMap.getObstacle()) {
                 moveForward(stepsToTake - 3);
                 rotate("Left");
                 reachedEnd = true;
-            // Else if the right wall is not found and the known map equals a unknown from the occupancy map, move forward and set the reached end to true.
-            } else if (!rightWallFound && knownMap[xCoordinate][yCoordinate] == OccupancyMap.UNKNOWN) {
+                // Else if the right wall is not found and the known map equals a unknown from the occupancy map, move forward and set the reached end to true.
+            } else if (!rightWallFound && knownMap[xCoordinate][yCoordinate] == occupancyMap.getUnknown()) {
                 moveForward(stepsToTake - 2);
                 reachedEnd = true;
-            // Else if the right wall is not found and the known map equals a empty from the occupancy map, corner right and set the reached end to true.
-            } else if (!rightWallFound && knownMap[xCoordinate][yCoordinate] == OccupancyMap.EMPTY) {
+                // Else if the right wall is not found and the known map equals a empty from the occupancy map, corner right and set the reached end to true.
+            } else if (!rightWallFound && knownMap[xCoordinate][yCoordinate] == occupancyMap.getEmpty()) {
                 cornerRight(stepsToTake);
                 reachedEnd = true;
             }
@@ -292,8 +289,8 @@ public class MobileRobotAI implements Runnable {
         scanArea();
 
         // The coordinates of the mobile robot.
-        int xCoordinate = (int) this.position[0] / occupancyMap.getCellDimension();
-        int yCoordinate = (int) this.position[1] / occupancyMap.getCellDimension();
+        int xCoordinate = (int) position[0] / occupancyMap.getCellDimension();
+        int yCoordinate = (int) position[1] / occupancyMap.getCellDimension();
 
         // If the right wall is found.
         boolean rightWallFound = searchWallToTheRight(xCoordinate, yCoordinate);
@@ -320,7 +317,6 @@ public class MobileRobotAI implements Runnable {
         boolean rightWallFound = true;
 
         // Debugging.
-        Debugger.print("MobileRobotAI", "searchWallToTheRight", "Starting");
         Debugger.print("MobileRobotAI", "searchWallToTheRight", "xCoordinate: " + xCoordinate);
         Debugger.print("MobileRobotAI", "searchWallToTheRight", "yCoordinate: " + yCoordinate);
 
@@ -334,7 +330,7 @@ public class MobileRobotAI implements Runnable {
         Debugger.print("MobileRobotAI", "searchWallToTheRight", "ySearchDirection: " + ySearchDirection);
 
         // The known map.
-        char[][] knownMap = this.occupancyMap.getGrid();
+        char[][] knownMap = occupancyMap.getGrid();
 
         // If the end is reached.
         boolean reachedEnd = false;
@@ -345,11 +341,11 @@ public class MobileRobotAI implements Runnable {
         // Loop until the steps until the wall are lower than 6 and the reached end is not true.
         while (stepsUntilWall < 6 && !reachedEnd) {
             // If the known map equals a unknown from the occupancy map, set the reached end to true and the right wall found to false.
-            if (knownMap[xCoordinate][yCoordinate] == OccupancyMap.UNKNOWN) {
+            if (knownMap[xCoordinate][yCoordinate] == occupancyMap.getUnknown()) {
                 reachedEnd = true;
                 rightWallFound = false;
-            // Else If the known map equals an obstacle from the occupancy map, set the reached end to true and the right wall found to true.
-            } else if (knownMap[xCoordinate][yCoordinate] == OccupancyMap.OBSTACLE) {
+                // Else If the known map equals an obstacle from the occupancy map, set the reached end to true and the right wall found to true.
+            } else if (knownMap[xCoordinate][yCoordinate] == occupancyMap.getObstacle()) {
                 reachedEnd = true;
                 rightWallFound = true;
             }
@@ -368,7 +364,7 @@ public class MobileRobotAI implements Runnable {
         }
 
         // Debugging.
-        Debugger.print("MobileRobotAI", "searchWallToTheRight", "returns " + rightWallFound);
+        Debugger.print("MobileRobotAI", "searchWallToTheRight", "returns: " + rightWallFound);
 
         // Return if the right wall is found.
         return rightWallFound;
@@ -421,9 +417,9 @@ public class MobileRobotAI implements Runnable {
     private void moveForward(int tiling) throws IOException {
         // Debugging.
         Debugger.print("MobileRobotAI", "moveForward", "executing");
-        Debugger.print("MobileRobotAI", "moveForward", "Moving forward " + tiling);
+        Debugger.print("MobileRobotAI", "moveForward", "tiling: " + tiling);
 
-        // Moves the mobile robot forward to the given direction.
+        // Move the mobile robot forward to the given direction.
         mobileRobot.sendCommand("P1.MOVEFW " + tiling * occupancyMap.getCellDimension());
         result = input.readLine();
     }
@@ -451,11 +447,15 @@ public class MobileRobotAI implements Runnable {
     private void scanArea() throws IOException {
         // Debugging.
         Debugger.print("MobileRobotAI", "scanArea", "executing");
-        Debugger.print("MobileRobotAI", "scanArea", "with laser");
 
-        // Get the current position and scan with the laser.
+        // Get the current position.
         currentPosition();
-        scan("Laser");
+
+        // Scan with the laser.
+        mobileRobot.sendCommand("L1.SCAN");
+        result = input.readLine();
+        parseMeasures(result, measures);
+        occupancyMap.drawLaserScan(position, measures);
 
         // If the x position not equals the start x coordinate and the y coordinate not equals the start y coordinate, set the first position to false.
         if (position[0] != startX && position[1] != startY) {
@@ -466,41 +466,6 @@ public class MobileRobotAI implements Runnable {
         if (!firstPosition) {
             startX = mobileRobot.getPlatform().getRobotPosition().getX();
             startY = mobileRobot.getPlatform().getRobotPosition().getY();
-        }
-    }
-
-    /**
-     * Scans.
-     *
-     * @param with The with.
-     * @throws IOException
-     */
-    private void scan(String with) throws IOException {
-        // Debugging.
-        Debugger.print("MobileRobotAI", "scan", "executing");
-
-        // The command.
-        String command;
-
-        // Switch the with to the laser.
-        switch (with) {
-            // Case laser, set the command to laser.
-            case "Laser":
-                command = "L";
-                break;
-            // Default, throw a new illegal argument exception.
-            default:
-                throw new IllegalArgumentException("Invalid with: " + with);
-        }
-
-        // Scans.
-        mobileRobot.sendCommand(command + "1.SCAN");
-        result = input.readLine();
-        parseMeasures(result, measures);
-
-        // If the command equals laser.
-        if (command.equals("L")) {
-            occupancyMap.drawLaserScan(position, measures);
         }
     }
 
@@ -554,12 +519,12 @@ public class MobileRobotAI implements Runnable {
                 break;
             // Default, throw a new illegal argument exception.
             default:
-                throw new IllegalArgumentException("The currentDirection: " + currentDirection + " is not a known direction.");
+                throw new IllegalArgumentException(currentDirection + " is not a known direction.");
         }
 
         // Debugging.
-        Debugger.print("MobileRobotAI", "determineSearchDirection", "xSearchDirection" + searchDirections[0]);
-        Debugger.print("MobileRobotAI", "determineSearchDirection", "ySearchDirection" + searchDirections[1]);
+        Debugger.print("MobileRobotAI", "determineSearchDirection", "xSearchDirection: " + searchDirections[0]);
+        Debugger.print("MobileRobotAI", "determineSearchDirection", "ySearchDirection: " + searchDirections[1]);
 
         // Return the search directions.
         return searchDirections;
@@ -584,16 +549,16 @@ public class MobileRobotAI implements Runnable {
         int south = (int) (SOUTH - numberToRound);
         int west = (int) (WEST - numberToRound);
 
-        // If north lesser than 2 and north greater than -2, set the closest direction to the north.
+        // If the north is lesser than 2 and the north is greater than -2, set the closest direction to the north.
         if (north < 2 && north > -2) {
             closestDirection = NORTH;
-        // Else if north lesser than 2 and east greater than -2 or east lesser than 362 and east greater than 358, set the closest direction to the east.
+        // Else if the north is lesser than 2 and the east is greater than -2 or the east  is lesser than 362 and the east is greater than 358, set the closest direction to the east.
         } else if (east < 2 && east > -2 || east < 362 && east > 358) {
             closestDirection = EAST;
-        // Else if south lesser than 2 and south greater than -2, set the closest direction to the south.
+        // Else if the south is lesser than 2 and the south is greater than -2, set the closest direction to the south.
         } else if (south < 2 && south > -2) {
             closestDirection = SOUTH;
-        // Else if west lesser than 2 and west greater than -2, set the closest direction to the west.
+        // Else if the west is lesser than 2 and the west greater than -2, set the closest direction to the west.
         } else if (west < 2 && west > -2) {
             closestDirection = WEST;
         // Else, throw a new illegal argument exception.
@@ -602,7 +567,7 @@ public class MobileRobotAI implements Runnable {
         }
 
         // Debugging.
-        Debugger.print("MobileRobotAI", "determineClosestDirection", "is " + closestDirection);
+        Debugger.print("MobileRobotAI", "determineClosestDirection", "returns: " + closestDirection);
 
         // Return the closest direction.
         return closestDirection;
@@ -632,10 +597,10 @@ public class MobileRobotAI implements Runnable {
             int ySearchDirection = searchDirections[1];
 
             // The known map.
-            char[][] knownMap = this.occupancyMap.getGrid();
+            char[][] knownMap = occupancyMap.getGrid();
 
             // While the known map not equals an obstacle from the occupancy map, increase the coordinates with the search direction coordinates.
-            while (knownMap[xCoordinate][yCoordinate] != OccupancyMap.OBSTACLE) {
+            while (knownMap[xCoordinate][yCoordinate] != occupancyMap.getObstacle()) {
                 xCoordinate += xSearchDirection;
                 yCoordinate += ySearchDirection;
             }
@@ -683,7 +648,6 @@ public class MobileRobotAI implements Runnable {
         return mapScanned;
     }
 
-    // TODO: Write comments.
     /**
      * Searches the adjacent wall.
      *
@@ -701,18 +665,22 @@ public class MobileRobotAI implements Runnable {
         int[] adjacentWall = new int[2];
 
         // The known map.
-        char[][] knownMap = this.occupancyMap.getGrid();
+        char[][] knownMap = occupancyMap.getGrid();
 
-        if (xCoordinate > 0 && knownMap[xCoordinate - 1][yCoordinate] == OccupancyMap.OBSTACLE && (xCoordinate - 1 != previousXCoordinate || yCoordinate != previousYCoordinate)) {
+        // If the x coordinate is greater than 0 and the known map equals the obstacle from the occupancy map and the x coordinate not equals the previous x coordinate or the y coordinate not equals the previous y coordinate, set the adjacent wall x to the x coordinate and the adjacent wall y to the y coordinate.
+        if (xCoordinate > 0 && knownMap[xCoordinate - 1][yCoordinate] == occupancyMap.getObstacle() && (xCoordinate - 1 != previousXCoordinate || yCoordinate != previousYCoordinate)) {
             adjacentWall[0] = xCoordinate - 1;
             adjacentWall[1] = yCoordinate;
-        } else if (knownMap[xCoordinate + 1][yCoordinate] == OccupancyMap.OBSTACLE && (xCoordinate + 1 != previousXCoordinate || yCoordinate != previousYCoordinate)) {
+        // Else if the known map equals the obstacle from the occupancy map and the x coordinate not equals the previous x coordinate or the y coordinate not equals the previous y coordinate, set the adjacent wall x to the x coordinate and the adjacent wall y to the y coordinate.
+        } else if (knownMap[xCoordinate + 1][yCoordinate] == occupancyMap.getObstacle() && (xCoordinate + 1 != previousXCoordinate || yCoordinate != previousYCoordinate)) {
             adjacentWall[0] = xCoordinate + 1;
             adjacentWall[1] = yCoordinate;
-        } else if (yCoordinate > 0 && knownMap[xCoordinate][yCoordinate - 1] == OccupancyMap.OBSTACLE && (xCoordinate != previousXCoordinate || yCoordinate - 1 != previousYCoordinate)) {
+        // If the y coordinate is greater than 0 and the known map equals the obstacle from the occupancy map and the x coordinate not equals the previous x coordinate or the y coordinate not equals the previous y coordinate, set the adjacent wall x to the x coordinate and the adjacent wall y to the y coordinate.
+        } else if (yCoordinate > 0 && knownMap[xCoordinate][yCoordinate - 1] == occupancyMap.getObstacle() && (xCoordinate != previousXCoordinate || yCoordinate - 1 != previousYCoordinate)) {
             adjacentWall[0] = xCoordinate;
             adjacentWall[1] = yCoordinate - 1;
-        } else if (knownMap[xCoordinate][yCoordinate + 1] == OccupancyMap.OBSTACLE && (xCoordinate != previousXCoordinate || yCoordinate + 1 != previousYCoordinate)) {
+        // Else if the known map equals the obstacle from the occupancy map and the x coordinate not equals the previous x coordinate or the y coordinate not equals the previous y coordinate, set the adjacent wall x to the x coordinate and the adjacent wall y to the y coordinate.
+        } else if (knownMap[xCoordinate][yCoordinate + 1] == occupancyMap.getObstacle() && (xCoordinate != previousXCoordinate || yCoordinate + 1 != previousYCoordinate)) {
             adjacentWall[0] = xCoordinate;
             adjacentWall[1] = yCoordinate + 1;
         // Else, throw a new illegal argument exception.
@@ -726,73 +694,86 @@ public class MobileRobotAI implements Runnable {
 
     /* Parsers */
 
-    // TODO: Write comments.
     /**
+     * Parses the position.
      *
-     *
-     * @param value
-     * @param position
+     * @param value The value.
+     * @param position The position.
      */
     private void parsePosition(String value, double position[]) {
         // Debugging.
         Debugger.print("MobileRobotAI", "parsePosition", "executing");
 
+        // The index init and index end.
         int indexInit;
         int indexEnd;
+
+        // The parameter.
         String parameter;
 
+        // Parse the x.
         indexInit = value.indexOf("X=");
         parameter = value.substring(indexInit + 2);
         indexEnd = parameter.indexOf(' ');
         position[0] = Double.parseDouble(parameter.substring(0, indexEnd));
 
+        // Parse the y.
         indexInit = value.indexOf("Y=");
         parameter = value.substring(indexInit + 2);
         indexEnd = parameter.indexOf(' ');
         position[1] = Double.parseDouble(parameter.substring(0, indexEnd));
 
+        // Parse the dir.
         indexInit = value.indexOf("DIR=");
         parameter = value.substring(indexInit + 4);
         position[2] = Double.parseDouble(parameter);
     }
 
-    // TODO: Write comments.
     /**
+     * Parse the measures.
      *
-     *
-     * @param value
-     * @param measures
+     * @param value The value.
+     * @param measures The position.
      */
     private void parseMeasures(String value, double measures[]) {
         // Debugging.
         Debugger.print("MobileRobotAI", "parseMeasures", "executing");
 
+        // Loop while i is lesser than 360, set the measures to 100.0.
         for (int i = 0; i < 360; i++) {
             measures[i] = 100.0;
         }
 
+        // If the value length is greater or equals 5.
         if (value.length() >= 5) {
-            System.out.print(ANSI.ANSI_MAGENTA + "Measurements: ");
+            // Print the measurements.
+            System.out.println(ANSI.ANSI_MAGENTA + "Measurements:");
 
+            // Set the value and the tokenizer.
             value = value.substring(5);
             StringTokenizer tokenizer = new StringTokenizer(value, " ");
 
+            // The distance and direction.
             double distance;
             int direction;
 
+            // While the tokenizer has more tokens.
             while (tokenizer.hasMoreTokens()) {
+                // Set the distance and direction.
                 distance = Double.parseDouble(tokenizer.nextToken().substring(2));
                 direction = (int) Math.round(Math.toDegrees(Double.parseDouble(tokenizer.nextToken().substring(2))));
 
+                // If the direction equals 360, set the direction to 0.
                 if (direction == 360) {
                     direction = 0;
                 }
 
+                // Set the measures to the distance.
                 measures[direction] = distance;
-                System.out.print("direction = " + direction + " distance = " + distance);
-            }
 
-            System.out.print("\n");
+                // Print the measurements.
+                System.out.println("direction: " + direction + "\t distance: " + distance);
+            }
         }
     }
 

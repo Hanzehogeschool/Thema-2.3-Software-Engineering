@@ -11,7 +11,6 @@ public class SimulationController extends JMenu implements ActionListener {
 
     private final JMenuItem menuSimulationStartPause;
     private final JMenuItem menuSimulationReset;
-
     private final MobileRobot robot;
     private final MainFrame main;
 

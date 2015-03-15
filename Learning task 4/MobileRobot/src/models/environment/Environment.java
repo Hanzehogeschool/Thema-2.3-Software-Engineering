@@ -13,7 +13,6 @@ public class Environment {
 
     private final ArrayList<Obstacle> obstacles;
     private final MobileRobot robot;
-
     private final ArrayList<ActionListener> actionListenerList;
 
     public Environment(OccupancyMap map) {
