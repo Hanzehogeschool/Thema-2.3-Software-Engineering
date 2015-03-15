@@ -194,7 +194,7 @@ public class MobileRobotAI implements Runnable {
                 if (mapScanned()) {
                     mobileRobot.quit();
                 }
-                // Catch the io exception.
+            // Catch the io exception.
             } catch (IOException ioException) {
                 System.err.println("MobileRobotAI: Execution stopped.");
                 running = false;
@@ -252,20 +252,20 @@ public class MobileRobotAI implements Runnable {
             // If the right wall is found and the known map equals empty from the occupancy map, increase the steps to take.
             if (rightWallFound && knownMap[xCoordinate][yCoordinate] == occupancyMap.getEmpty()) {
                 stepsToTake++;
-                // Else if the right wall is found and the known map equals unknown from the occupancy map, move forward and set the reached end to true.
+            // Else if the right wall is found and the known map equals unknown from the occupancy map, move forward and set the reached end to true.
             } else if (rightWallFound && knownMap[xCoordinate][yCoordinate] == occupancyMap.getUnknown()) {
                 moveForward(stepsToTake - 2);
                 reachedEnd = true;
-                // Else if the right wall is found and the known map equals obstacle from the occupancy map, move forward, rotate to the left and set the reached end to true.
+            // Else if the right wall is found and the known map equals obstacle from the occupancy map, move forward, rotate to the left and set the reached end to true.
             } else if (rightWallFound && knownMap[xCoordinate][yCoordinate] == occupancyMap.getObstacle()) {
                 moveForward(stepsToTake - 3);
                 rotate("Left");
                 reachedEnd = true;
-                // Else if the right wall is not found and the known map equals unknown from the occupancy map, move forward and set the reached end to true.
+            // Else if the right wall is not found and the known map equals unknown from the occupancy map, move forward and set the reached end to true.
             } else if (!rightWallFound && knownMap[xCoordinate][yCoordinate] == occupancyMap.getUnknown()) {
                 moveForward(stepsToTake - 2);
                 reachedEnd = true;
-                // Else if the right wall is not found and the known map equals empty from the occupancy map, corner right and set the reached end to true.
+            // Else if the right wall is not found and the known map equals empty from the occupancy map, corner right and set the reached end to true.
             } else if (!rightWallFound && knownMap[xCoordinate][yCoordinate] == occupancyMap.getEmpty()) {
                 cornerRight(stepsToTake);
                 reachedEnd = true;
@@ -352,7 +352,7 @@ public class MobileRobotAI implements Runnable {
             if (knownMap[xCoordinate][yCoordinate] == occupancyMap.getUnknown()) {
                 reachedEnd = true;
                 rightWallFound = false;
-                // Else if the known map equals obstacle from the occupancy map, set the reached end to true and the right wall found to true.
+            // Else if the known map equals obstacle from the occupancy map, set the reached end to true and the right wall found to true.
             } else if (knownMap[xCoordinate][yCoordinate] == occupancyMap.getObstacle()) {
                 reachedEnd = true;
                 rightWallFound = true;
@@ -560,16 +560,16 @@ public class MobileRobotAI implements Runnable {
         // If the north is lesser than 2 and the north is greater than -2, set the closest direction to the north.
         if (north < 2 && north > -2) {
             closestDirection = NORTH;
-            // Else if the north is lesser than 2 and the east is greater than -2 or the east is lesser than 362 and the east is greater than 358, set the closest direction to the east.
+        // Else if the north is lesser than 2 and the east is greater than -2 or the east is lesser than 362 and the east is greater than 358, set the closest direction to the east.
         } else if (east < 2 && east > -2 || east < 362 && east > 358) {
             closestDirection = EAST;
-            // Else if the south is lesser than 2 and the south is greater than -2, set the closest direction to the south.
+        // Else if the south is lesser than 2 and the south is greater than -2, set the closest direction to the south.
         } else if (south < 2 && south > -2) {
             closestDirection = SOUTH;
-            // Else if the west is lesser than 2 and the west greater than -2, set the closest direction to the west.
+        // Else if the west is lesser than 2 and the west greater than -2, set the closest direction to the west.
         } else if (west < 2 && west > -2) {
             closestDirection = WEST;
-            // Else, throw a new illegal argument exception.
+        // Else, throw a new illegal argument exception.
         } else {
             throw new IllegalArgumentException("The number provided is outside the predefined boundaries.");
         }
@@ -644,8 +644,7 @@ public class MobileRobotAI implements Runnable {
                 } catch (IllegalArgumentException illegalArgumentException) {
                     continueSearch = false;
                 }
-            }
-            while ((currentXCoordinate != startXCoordinate || currentYCoordinate != startYCoordinate) && continueSearch);
+            } while ((currentXCoordinate != startXCoordinate || currentYCoordinate != startYCoordinate) && continueSearch);
 
             // If the search continues is true, set the map scanned to true.
             if (continueSearch) {
@@ -680,19 +679,19 @@ public class MobileRobotAI implements Runnable {
         if (xCoordinate > 0 && knownMap[xCoordinate - 1][yCoordinate] == occupancyMap.getObstacle() && (xCoordinate - 1 != previousXCoordinate || yCoordinate != previousYCoordinate)) {
             adjacentWall[0] = xCoordinate - 1;
             adjacentWall[1] = yCoordinate;
-            // Else if the known map equals the obstacle from the occupancy map and the x coordinate not equals the previous x coordinate or the y coordinate not equals the previous y coordinate, set the adjacent wall x to the x coordinate and the adjacent wall y to the y coordinate.
+        // Else if the known map equals the obstacle from the occupancy map and the x coordinate not equals the previous x coordinate or the y coordinate not equals the previous y coordinate, set the adjacent wall x to the x coordinate and the adjacent wall y to the y coordinate.
         } else if (knownMap[xCoordinate + 1][yCoordinate] == occupancyMap.getObstacle() && (xCoordinate + 1 != previousXCoordinate || yCoordinate != previousYCoordinate)) {
             adjacentWall[0] = xCoordinate + 1;
             adjacentWall[1] = yCoordinate;
-            // Else if the y coordinate is greater than 0 and the known map equals the obstacle from the occupancy map and the x coordinate not equals the previous x coordinate or the y coordinate not equals the previous y coordinate, set the adjacent wall x to the x coordinate and the adjacent wall y to the y coordinate.
+        // Else if the y coordinate is greater than 0 and the known map equals the obstacle from the occupancy map and the x coordinate not equals the previous x coordinate or the y coordinate not equals the previous y coordinate, set the adjacent wall x to the x coordinate and the adjacent wall y to the y coordinate.
         } else if (yCoordinate > 0 && knownMap[xCoordinate][yCoordinate - 1] == occupancyMap.getObstacle() && (xCoordinate != previousXCoordinate || yCoordinate - 1 != previousYCoordinate)) {
             adjacentWall[0] = xCoordinate;
             adjacentWall[1] = yCoordinate - 1;
-            // Else if the known map equals the obstacle from the occupancy map and the x coordinate not equals the previous x coordinate or the y coordinate not equals the previous y coordinate, set the adjacent wall x to the x coordinate and the adjacent wall y to the y coordinate.
+        // Else if the known map equals the obstacle from the occupancy map and the x coordinate not equals the previous x coordinate or the y coordinate not equals the previous y coordinate, set the adjacent wall x to the x coordinate and the adjacent wall y to the y coordinate.
         } else if (knownMap[xCoordinate][yCoordinate + 1] == occupancyMap.getObstacle() && (xCoordinate != previousXCoordinate || yCoordinate + 1 != previousYCoordinate)) {
             adjacentWall[0] = xCoordinate;
             adjacentWall[1] = yCoordinate + 1;
-            // Else, throw a new illegal argument exception.
+        // Else, throw a new illegal argument exception.
         } else {
             throw new IllegalArgumentException("Wall is not complete.");
         }
