@@ -57,6 +57,7 @@ public class Laser extends Device {
 
                 if (minDistance == -1.0 || (dist > 0 && dist < minDistance)) {
                     minDistance = dist;
+
                     if (minDistance > -1 && first) {
                         return minDistance;
                     }
