@@ -153,9 +153,9 @@ public class MobileRobotAI implements Runnable {
             this.input = new BufferedReader(new InputStreamReader(pipeIn));
             this.output = new PrintWriter(new PipedOutputStream(pipeIn), true);
             this.result = "";
-            // Catch the io exception.
+        // Catch the io exception.
         } catch (IOException ioException) {
-            System.err.println("MobileRobotAI: Something went wrong while initializing.");
+            System.err.println("Mobile Robot AI: Something went wrong while initializing.");
         }
 
         // Set the output of the mobile robot.
@@ -196,7 +196,7 @@ public class MobileRobotAI implements Runnable {
                 }
             // Catch the io exception.
             } catch (IOException ioException) {
-                System.err.println("MobileRobotAI: Execution stopped.");
+                System.err.println("Mobile Robot AI: Execution stopped.");
                 running = false;
             }
         }
@@ -630,6 +630,7 @@ public class MobileRobotAI implements Runnable {
 
             // Do, while the current x coordinate not equals the start x coordinate or the current y coordinate not equals the start y coordinate and if the search continues is true.
             do {
+                // Try.
                 try {
                     // The adjacent wall coordinates.
                     int[] adjacentWallCoordinates = searchAdjacentWall(currentXCoordinate, currentYCoordinate, previousXCoordinate, previousYCoordinate);
@@ -641,6 +642,7 @@ public class MobileRobotAI implements Runnable {
                     // Set the current coordinates to the adjacent wall coordinates.
                     currentXCoordinate = adjacentWallCoordinates[0];
                     currentYCoordinate = adjacentWallCoordinates[1];
+                // Catch the illegal argument exception.
                 } catch (IllegalArgumentException illegalArgumentException) {
                     continueSearch = false;
                 }

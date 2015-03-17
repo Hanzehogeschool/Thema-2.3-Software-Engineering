@@ -39,6 +39,7 @@ public abstract class Device implements Runnable {
 
         this.commands = new ArrayList<>();
         this.output = null;
+
         robot.readPosition(this.robotPosition);
     }
 
@@ -90,7 +91,7 @@ public abstract class Device implements Runnable {
 
                 nextStep();
             } catch (InterruptedException ie) {
-                System.err.println("Device: Run was interrupted.");
+                System.err.println("Device " + name + ": Run was interrupted.");
             }
         } while (this.running);
     }
