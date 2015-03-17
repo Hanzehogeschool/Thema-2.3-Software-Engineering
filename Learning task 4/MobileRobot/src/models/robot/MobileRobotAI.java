@@ -738,7 +738,7 @@ public class MobileRobotAI implements Runnable {
     }
 
     /**
-     * Parse the measures.
+     * Parses the measures.
      *
      * @param value    The value.
      * @param measures The position.
