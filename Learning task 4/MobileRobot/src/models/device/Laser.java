@@ -15,13 +15,13 @@ public class Laser extends Device {
 
     private static final int CLOCKWISE = 1;
     final int range = 100;
-    private final ArrayList<Measurement> scanMeasurements;
+    private final ArrayList<LaserMeasurement> scanMeasurements;
     private int orientation = 1;
     private double rotStep = 1.0;
     private double numSteps = 0;
     private boolean detect;
     private boolean scan;
-    private Measurement detectMeasure;
+    private LaserMeasurement detectMeasure;
 
     public Laser(String name, MobileRobot robot, Position localPos, Environment environment) {
         super(name, robot, localPos, environment);
@@ -135,10 +135,10 @@ public class Laser extends Device {
             this.commands.add("GETMEASURES");
             this.executingCommand = true;
         } else if (command.equalsIgnoreCase("GETMEASURES")) {
-            Measurement measure;
+            LaserMeasurement measure;
             String measures = "SCAN";
 
-            for (Measurement scanMeasure : scanMeasurements) {
+            for (LaserMeasurement scanMeasure : scanMeasurements) {
                 measure = scanMeasure;
                 measures += " d=" + measure.distance + " t=" + measure.direction;
             }
@@ -174,7 +174,7 @@ public class Laser extends Device {
 
             if (distance > -1.0) {
                 if (detectMeasure == null) {
-                    detectMeasure = new Measurement(distance, localPosition.getT());
+                    detectMeasure = new LaserMeasurement(distance, localPosition.getT());
                 } else if (detectMeasure.distance > distance) {
                     detectMeasure.set(distance, localPosition.getT());
                 }
@@ -182,7 +182,7 @@ public class Laser extends Device {
         } else if (scan) {
             double distance = this.read(false);
             if (distance > -1.0) {
-                scanMeasurements.add(new Measurement(distance, localPosition.getT()));  // ??????????????
+                scanMeasurements.add(new LaserMeasurement(distance, localPosition.getT()));  // ??????????????
             }
         }
     }

@@ -1,11 +1,11 @@
 package models.device;
 
-public class Measurement {
+public class LaserMeasurement {
 
     protected double distance;
     protected double direction;
 
-    protected Measurement(double distance, double direction) {
+    protected LaserMeasurement(double distance, double direction) {
         this.set(distance, direction);
         this.processDirectionValue();
     }
