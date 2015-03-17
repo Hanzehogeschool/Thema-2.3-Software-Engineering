@@ -11,20 +11,71 @@ import java.awt.geom.Line2D;
 import java.awt.geom.Point2D;
 import java.util.ArrayList;
 
+/**
+ * Class representing a sensor.
+ *
+ * @author Nils Berlijn
+ * @author Tom Broenink
+ * @version 1.0
+ */
 public abstract class Sensor extends Device {
 
+    /**
+     * The clockwise.
+     */
     protected static final int CLOCKWISE = 1;
+
+    /**
+     * The range.
+     */
     protected final int range = 100;
+
+    /**
+     * The scan measurements.
+     */
     protected final ArrayList<Measurement> scanMeasurements;
+
+    /**
+     * The orientation.
+     */
     protected int orientation = 1;
+
+    /**
+     * The rot step.
+     */
     protected double rotStep = 1.0;
+
+    /**
+     * The num steps.
+     */
     protected double numSteps = 0;
+
+    /**
+     * The detect.
+     */
     protected boolean detect;
+
+    /**
+     * The scan.
+     */
     protected boolean scan;
+
+    /**
+     * The detect measure.
+     */
     protected Measurement detectMeasure;
 
-    public Sensor(String name, MobileRobot robot, Position localPos, Environment environment) {
-        super(name, robot, localPos, environment);
+    /**
+     * Sensor constructor.
+     * Creates a new sensor.
+     *
+     * @param name The name.
+     * @param mobileRobot The mobileRobot.
+     * @param localPosition The local position.
+     * @param environment THe environment.
+     */
+    public Sensor(String name, MobileRobot mobileRobot, Position localPosition, Environment environment) {
+        super(name, mobileRobot, localPosition, environment);
 
         this.detect = false;
         this.scan = false;
@@ -32,6 +83,12 @@ public abstract class Sensor extends Device {
         this.scanMeasurements = new ArrayList<>();
     }
 
+    /**
+     * Reads the distance.
+     *
+     * @param first The first.
+     * @return The read distance.
+     */
     public double read(boolean first) {
         Point2D centre = new Point2D.Double(localPosition.getX(), localPosition.getY());
         Point2D front = new Point2D.Double(localPosition.getX() + range * Math.cos(localPosition.getT()), localPosition.getY() + range * Math.sin(localPosition.getT()));
@@ -65,6 +122,15 @@ public abstract class Sensor extends Device {
         return -1.0;
     }
 
+    /**
+     * Calculates the point to an obstacle.
+     *
+     * @param polygon The polygon.
+     * @param centre The centre.
+     * @param front The front.
+     * @param first The first.
+     * @return The point to an obstacle.
+     */
     public double pointToObstacle(Polygon polygon, Point2D centre, Point2D front, boolean first) {
         int j;
         double minDistance = -1.0;
@@ -117,6 +183,11 @@ public abstract class Sensor extends Device {
         return minDistance;
     }
 
+    /**
+     * Executes the command.
+     *
+     * @param command The command.
+     */
     public void executeCommand(String command) {
         if (command.equalsIgnoreCase("READ")) {
             writeOut("t=" + Double.toString(this.localPosition.getT()) + " d=" + Double.toString(this.read(true)));
@@ -143,6 +214,9 @@ public abstract class Sensor extends Device {
         }
     }
 
+    /**
+     * Provides the next step.
+     */
     public void nextStep() {
         if (this.executingCommand && numSteps > 0.0) {
             if (numSteps < 1.0) {

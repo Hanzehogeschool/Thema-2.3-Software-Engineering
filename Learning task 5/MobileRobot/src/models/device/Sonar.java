@@ -10,16 +10,38 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.geom.Point2D;
 
+/**
+ * Class representing a sonar.
+ *
+ * @author Nils Berlijn
+ * @author Tom Broenink
+ * @version 1.0
+ */
 public class Sonar extends Sensor {
 
-    public Sonar(String name, MobileRobot robot, Position localPos, Environment environment) {
-        super(name, robot, localPos, environment);
+    /**
+     * Sonar constructor.
+     * Creates a new sonar.
+     *
+     * @param name The name.
+     * @param mobileRobot The mobileRobot.
+     * @param localPosition The local position.
+     * @param environment THe environment.
+     */
+    public Sonar(String name, MobileRobot mobileRobot, Position localPosition, Environment environment) {
+        super(name, mobileRobot, localPosition, environment);
 
         backgroundColor = new Color(0, 255, 0, 50);
 
         drawSonar(10.0);
     }
 
+    /**
+     * Reads the distance.
+     *
+     * @param first The first.
+     * @return The read distance.
+     */
     @Override
     public double read(boolean first) {
         double minDistance = -1.0;
@@ -62,6 +84,15 @@ public class Sonar extends Sensor {
         return -1.0;
     }
 
+    /**
+     * Calculates the point to an obstacle.
+     *
+     * @param polygon The polygon.
+     * @param centre The centre.
+     * @param front The front.
+     * @param first The first.
+     * @return The point to an obstacle.
+     */
     @Override
     public double pointToObstacle(Polygon polygon, Point2D centre, Point2D front, boolean first) {
         double minDistance = -1.0;
@@ -92,6 +123,11 @@ public class Sonar extends Sensor {
         return minDistance;
     }
 
+    /**
+     * Executes the command.
+     *
+     * @param command The command.
+     */
     @Override
     public void executeCommand(String command) {
         if (command.equalsIgnoreCase("READ")) {
@@ -116,6 +152,9 @@ public class Sonar extends Sensor {
             writeOut("DECLINED");
     }
 
+    /**
+     * Provides the next step.
+     */
     @Override
     public void nextStep() {
         if (this.executingCommand && numSteps < this.range) {
@@ -156,6 +195,11 @@ public class Sonar extends Sensor {
         }
     }
 
+    /**
+     * Draws the sonar.
+     *
+     * @param radius The radius.
+     */
     private void drawSonar(double radius) {
         this.getShape().reset();
 
@@ -172,6 +216,15 @@ public class Sonar extends Sensor {
         }
     }
 
+    /**
+     * The geometry.
+     *
+     * @param x The x coordinate.
+     * @param y The y coordinate.
+     * @param center The center.
+     * @param radius The radius.
+     * @return If the geometry is possible.
+     */
     private boolean geometry(int x, int y, Point2D center, int radius) {
         double dx = Math.abs(x - center.getX());
         double dy = Math.abs(y - center.getY());
